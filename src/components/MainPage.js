@@ -1,10 +1,11 @@
 import React from "react";
 
+import Navigation from "./Navigation";
+
 const MainPage = () => {
     return (
         <>
-            <h1>main page</h1>
-            <img className="main__logo" src={require("../assets/logo/elbowslogo.png")} alt="logo" />
+            <Navigation />
         </>
     );
 }

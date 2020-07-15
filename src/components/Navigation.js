@@ -8,10 +8,14 @@ const Navigation = props => {
 
     return (
         <nav className="nav__container">
-            <Link to="/" className="nav__logo">ELBOWS <img className="nav__icon" src={require("../assets/logo/elbowslogo.png")} alt="logo" /></Link>
-            <div className="nav__item nav__userimg">userImage</div>
+            <Link to="/main" className="nav__logo">ELBOWS</Link>
+            <img className="nav__icon" src={require("../assets/logo/elbowslogo.png")} alt="logo" />
+            <Link to="/main">Main</Link>
+            <Link to="/explore">Explore</Link>
+            <button>Activities</button>
+            <button></button>
             <button onClick={() => props.openModal("login")} className="nav__item nav__login">Log in</button>
-            <button onClick={() => props.openModal("signup")} className="nav__item">Sign up</button>
+            <button onClick={() => props.openModal("signup")} className="nav__item nav__signup">Sign up</button>
         </nav>
     );
 }
