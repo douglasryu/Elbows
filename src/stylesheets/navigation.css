@@ -12,23 +12,30 @@
 .nav__logo {
     font-size: 28px;
     font-weight: 600;
-    margin: 0px 0px 0px 20px;
+    margin: 0px 0px 0px auto;
 }
 
 .nav__icon {
     width: 70px;
     display: inline-block;
-    margin: 0px auto 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+.nav__search--icon {
+    position: relative;
+    left: 80px;
 }
 
 .nav__search {
     border: 1px solid black;
+    margin: 0px 50px 0px 50px;
+    padding: 5px 0px 5px 30px;
 }
 
-.nav__login {
-    margin: 0px 0px 0px auto;
+.nav__menu {
+    margin: 0px 0px 0px 20px;
 }
 
-.nav__signup {
-    margin: 0px 20px 0px 0px;
+.nav__account {
+    margin: 0px auto 0px 0px;
 }

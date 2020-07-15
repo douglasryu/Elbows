@@ -5,26 +5,21 @@ import { closeModal } from "../actions/modalActions";
 // import Signin from "./Signin";
 // import Signup from "./Signup";
 // import CheckOut from "./CheckOut";
+import AccountModal from "./AccountModal";
 
 const Modal = (props) => {
     const { modal } = props;
 
     if (!modal) return null;
 
-    // let component;
-    // switch (modal) {
-    //     case "signin":
-    //         component = <Signin type={"signin"} />;
-    //         break;
-    //     case "signup":
-    //         component = <Signup type={"signup"} />;
-    //         break;
-    //     case "checkout":
-    //         component = <CheckOut total={props.total} {...props} type="checkout" />;
-    //         break;
-    //     default:
-    //         return null;
-    // }
+    let component;
+    switch (modal) {
+        case "account":
+            component = <AccountModal type={"account"} />;
+            break;
+        default:
+            return null;
+    }
 
     const handleBackgroundClick = (event) => {
         props.closeModal();
