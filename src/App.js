@@ -1,9 +1,16 @@
 import React from 'react';
+import { BrowserRouter, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <h1>Hello world!</h1>
-  );
+import LandingPage from "./components/LandingPage";
+import MainPage from "./components/MainPage";
+
+const App = props => {
+    return (
+        <BrowserRouter>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/main" component={MainPage} />
+        </BrowserRouter>
+    );
 }
 
 export default App;
