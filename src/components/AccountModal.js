@@ -6,8 +6,12 @@ import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutline
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 const AccountModal = () => {
+    const handleChildClick = (event) => {
+        event.stopPropagation();
+    };
+
     return (
-        <div className="account__modal">
+        <div className="account__modal" onClick={handleChildClick}>
             <Link to="/profile" className="account__modal--item"><PersonOutlineIcon className="account__modal--icon" style={{ fontSize: 21 }} /> Profile</Link>
             <button className="account__modal--item"><BookmarkBorderOutlinedIcon className="account__modal--icon" style={{ fontSize: 18 }} /> Saved</button>
             <button className="account__modal--item"><SettingsOutlinedIcon className="account__modal--icon" style={{ fontSize: 18 }} /> Settings</button>
