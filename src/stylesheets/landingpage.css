@@ -1,0 +1,54 @@
+.landing__page {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("../assets/images/landingpageimage.jpg");
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.landing__header {
+    position: relative;
+    bottom: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.session__container {
+    display: flex;
+    justify-content: center;
+}
+
+.landing__signin {
+    margin-right: 30px;
+    font-size: 20px;
+    background-color: rgba(156, 175, 183, 0.7);
+    border-radius: 3px;
+    padding: 10px 22px 10px 22px;
+    /* color: rgba(34, 34, 59); */
+    color: #000000;
+}
+
+.landing__signup {
+    margin-left: 30px;
+    font-size: 20px;
+    background-color: rgba(156, 175, 183, 0.7);
+    border-radius: 3px;
+    padding: 10px 15px 10px 15px;
+    /* color: rgba(34, 34, 59); */
+    color: #000000;
+}
+
+.landing__signin:hover,
+.landing__signup:hover {
+    color: #ffffff;
+}
+
+#Selection {
+    fill: black;
+}

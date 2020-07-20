@@ -7,6 +7,7 @@ import './stylesheets/index.css';
 import './stylesheets/modal.css';
 import './stylesheets/session.css';
 import './stylesheets/navigation.css';
+import './stylesheets/landingpage.css';
 import './stylesheets/profilepage.css';
 // import './stylesheets/mainpage.css';
 import App from './App';

@@ -1,13 +1,16 @@
 import React from "react";
+import {connect} from "react-redux";
 import { Link } from "react-router-dom";
-
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
-const AccountModal = () => {
+import {closeModal} from "../actions/modalActions";
+
+const AccountModal = props => {
     const handleChildClick = (event) => {
-        event.stopPropagation();
+        // event.stopPropagation();
+        // props.closeModal();
     };
 
     return (
@@ -20,4 +23,24 @@ const AccountModal = () => {
     );
 }
 
-export default AccountModal;
+// const mapStateToProps = (state) => {
+//     return {
+//         modal: state.modal,
+//     };
+// };
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        closeModal: () => dispatch(closeModal()),
+    };
+};
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(
+    AccountModal
+);
+
+
+// export default AccountModal;

@@ -1,13 +1,65 @@
-.signup__form {
+/* Sign In CSS */
+.signin__page {
+    display: flex;
+}
+
+.signin__image--container {
+    overflow: hidden;
+    height: 100vh;
+    width: 60vw;
+    background-image: url("../assets/images/signinpageimage.jpg");
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -450px 0px;
+}
+
+
+.signin__form {
+    position: relative;
+    left: 50px;
+    /* align-self: center; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.signin__form {
+.signin__email {
+    border: 1px solid rgba(156, 175, 183, 0.7);
+    border-radius: 2px;
+    padding: 5px 0px 5px 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.signin__password {
+    border: 1px solid rgba(156, 175, 183, 0.7);
+    border-radius: 2px;
+    padding: 5px 0px 5px 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.signin__button {
+    background-color: rgba(156, 175, 183, 0.7);
+    padding: 10px 37px 10px 37px;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.signin__demo {
+    background-color: rgba(156, 175, 183, 0.7);
+    padding: 10px 37px 10px 37px;
+    border-radius: 4px;
+    margin-left: 20px;
+}
+
+
+/* Sign Up CSS */
+.signup__form {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
 }
