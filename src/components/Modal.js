@@ -12,7 +12,7 @@ const Modal = (props) => {
     let component;
     switch (modal) {
         case "account":
-            component = <AccountModal type={"account"} />;
+            component = <AccountModal type={"account"} {...props} />;
             break;
         default:
             return null;

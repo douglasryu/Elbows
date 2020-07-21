@@ -1,12 +1,12 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LandingPage = props => {
     return (
         <div className="landing__page">
-            <div className="landing__header">Welcome to <svg xmlns="http://www.w3.org/2000/svg"
+            <div className="landing__header">welcome to <svg xmlns="http://www.w3.org/2000/svg"
                 width="300px" height="60px"
-                viewBox="0 0 400 60">
+                viewBox="0 0 400 55">
                 <path id="Selection"
                     fill="none" stroke="black" stroke-width="1"
                     d="M 217.00,0.53
@@ -87,7 +87,7 @@ const LandingPage = props => {
                         222.96,50.29 217.82,47.95 216.03,43.00
                         214.50,39.43 214.43,25.36 216.03,22.02
                         217.53,19.43 218.63,18.92 221.02,17.60 Z" />
-                </svg>, social network done the safe way
+            </svg>, safe and social
             </div>
             <div className="session__container">
                 <Link to="/signin" className="landing__signin">Log In</Link>

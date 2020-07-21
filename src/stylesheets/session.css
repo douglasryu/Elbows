@@ -14,15 +14,19 @@
     background-position: -450px 0px;
 }
 
-
 .signin__form {
     position: relative;
     left: 50px;
-    /* align-self: center; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.signin__header {
+    font-size: 30px;
+    position: relative;
+    bottom: 50px;
 }
 
 .signin__email {
@@ -57,9 +61,77 @@
 
 
 /* Sign Up CSS */
+.signup__page {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/images/signuppageimage.jpg");
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
 .signup__form {
     display: flex;
-    flex-direction: column; 
+    position: relative;
+    left: 15%;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 4px;
+    padding: 40px;
+}
+
+.signup__header {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.signup__email {
+    border: 1px solid rgba(156, 175, 183, 0.7);
+    padding: 10px 0px 10px 0px;
+    width: 80%;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.signup__name {
+    border: 1px solid rgba(156, 175, 183, 0.7);
+    padding: 10px 0px 10px 0px;
+    width: 80%;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.signup__username {
+    border: 1px solid rgba(156, 175, 183, 0.7);
+    padding: 10px 0px 10px 0px;
+    width: 80%;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.signup__password {
+    border: 1px solid rgba(156, 175, 183, 0.7);
+    padding: 10px 0px 10px 0px;
+    width: 80%;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.signup__confirm {
+    border: 1px solid rgba(156, 175, 183, 0.7);
+    padding: 10px 0px 10px 0px;
+    width: 80%;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.signup__button {
+    background-color: rgba(156, 175, 183, 0.7);
+    margin-top: 10px;
+    padding: 15px 92px 15px 92px;
+    border-radius: 4px;
 }

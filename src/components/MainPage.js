@@ -3,10 +3,10 @@ import React from "react";
 import Modal from "./Modal";
 import Navigation from "./Navigation";
 
-const MainPage = () => {
+const MainPage = props => {
     return (
         <>
-            <Modal />
+            <Modal {...props} />
             <Navigation />
         </>
     );

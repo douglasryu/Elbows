@@ -16,13 +16,12 @@ export const loadToken = () => (dispatch) => {
     }
 };
 
-export const createUser = (name, email, password) => async dispatch => {
-    const response = await fetch(`${baseUrl}/api/users`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
-    });
-
+export const createUser = (response) => async dispatch => {
+    // const response = await fetch(`${baseUrl}/api/users`, {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ name, username, email, bio, password, confirmPassword }),
+    // });
     if (response.ok) {
         const payload = await response.json();
         window.localStorage.setItem(TOKEN_KEY, payload.access_token);
@@ -32,13 +31,7 @@ export const createUser = (name, email, password) => async dispatch => {
     }
 };
 
-export const login = (email, password) => async dispatch => {
-    const response = await fetch(`${baseUrl}/api/users/session`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-    });
-
+export const login = (response) => async dispatch => {
     if (response.ok) {
         const payload = await response.json();
         window.localStorage.setItem(TOKEN_KEY, payload.access_token);
