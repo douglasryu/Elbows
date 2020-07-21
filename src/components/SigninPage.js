@@ -61,7 +61,7 @@ const SigninPage = props => {
         <div className="signin__page">
             <div className="signin__image--container"></div>
             <form className="signin__form">
-                <div className="signin__header">Elbow on</div>
+                <div className="signin__header">KEEP CALM AND ELBOW ON</div>
                 <input type="email" className="signin__email" value={email} onChange={updateEmail} placeholder="Email" />
                 <input type="password" className="signin__password" value={password} onChange={updatePassword} placeholder="Password" />
                 <div className="signin__button--container">

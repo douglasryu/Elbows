@@ -1,5 +1,3 @@
-import { baseUrl } from "../config";
-
 export const TOKEN_KEY = "elbows/authentication/token";
 export const SET_TOKEN = "elbows/authentication/SET_TOKEN";
 export const REMOVE_TOKEN = "elbows/authentication/REMOVE_TOKEN";
@@ -16,19 +14,12 @@ export const loadToken = () => (dispatch) => {
     }
 };
 
-export const createUser = (response) => async dispatch => {
-    // const response = await fetch(`${baseUrl}/api/users`, {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ name, username, email, bio, password, confirmPassword }),
-    // });
-    if (response.ok) {
-        const payload = await response.json();
-        window.localStorage.setItem(TOKEN_KEY, payload.access_token);
-        window.localStorage.setItem("elbows/authentication/USER_ID", payload.user.id);
-        window.localStorage.setItem("elbows/authentication/name", payload.user.name);
-        dispatch(setToken(payload));
-    }
+export const createUser = (payload) => async dispatch => {
+    // const payload = await response.json();
+    window.localStorage.setItem(TOKEN_KEY, payload.access_token);
+    window.localStorage.setItem("elbows/authentication/USER_ID", payload.user.id);
+    window.localStorage.setItem("elbows/authentication/name", payload.user.name);
+    dispatch(setToken(payload));
 };
 
 export const login = (response) => async dispatch => {
@@ -46,5 +37,4 @@ export const logout = () => (dispatch) => {
     window.localStorage.removeItem("elbows/authentication/USER_ID");
     window.localStorage.removeItem("elbows/authentication/name");
     dispatch(removeToken());
-    // window.location.href = "/";
 };

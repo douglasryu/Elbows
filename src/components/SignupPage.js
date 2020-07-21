@@ -37,25 +37,20 @@ const SignupPage = props => {
     const handleSignup = async (event) => {
         event.preventDefault();
 
-        // try {
         const response = await fetch(`${baseUrl}/api/users`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, username, email, bio: null, password, confirmPassword }),
         });
-        const res = await response.json();
 
+        const res = await response.json();
         if (response.status !== 200) {
             setError(res.error);
             setOpen(true);
         } else {
-            props.createUser(response);
+            props.createUser(res);
+            props.history.push("/main");
         }
-        // } catch (err) {
-        // console.log(err);
-        // }
-        props.createUser(name, username, email, null, password, confirmPassword)
-
     }
 
     return (
