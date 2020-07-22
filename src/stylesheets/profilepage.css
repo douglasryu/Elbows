@@ -5,6 +5,10 @@
     position: relative;
     top: 90px;
     z-index: -2;
+    margin: 0 auto;
+    width: 800px;
+    padding: 0px 0px 40px 0px;
+    border-bottom: 1px solid rgba(156, 175, 183, 0.7);
     /* right: 100px; */
 }
 
@@ -14,7 +18,7 @@
     align-items: center;
     width: 125px;
     height: 125px;
-    border: 1px solid grey;
+    border: 1px solid rgba(156, 175, 183, 0.9);
     border-radius: 50%;
     overflow: hidden;
 }
@@ -42,7 +46,7 @@
 
 .profile__edit {
     margin-left: 60px;
-    border: 1px solid grey;
+    border: 1px solid rgba(156, 175, 183, 0.8);
     border-radius: 3px;
     padding: 3px 5px 3px 5px;
 }
@@ -58,4 +62,9 @@
 
 .profile__follower {
     margin-right: 20px;
+}
+
+.upload {
+    position: relative;
+    top: 500px;
 }

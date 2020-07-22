@@ -1,4 +1,5 @@
 import React from "react";
+import Upload from "./Upload";
 
 const ProfileInfo = () => {
     return (
@@ -17,6 +18,7 @@ const ProfileInfo = () => {
                     <div className="profile__following">0 following</div>
                 </div>
             </div>
+            <Upload />
         </div>
     );
 }
