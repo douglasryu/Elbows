@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import SearchIcon from '@material-ui/icons/Search';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import AddPhotoAlternateOutlinedIcon from '@material-ui/icons/AddPhotoAlternateOutlined';
 import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
@@ -159,11 +160,12 @@ const Navigation = props => {
                             425.94,60.67 424.02,59.53 421.59,58.77
                             419.18,58.01 415.37,57.10 410.17,56.05 Z" />
                 </svg>
-                <img className="nav__icon" src={require("../assets/logo/elbowslogo.png")} alt="nav-icon" />
+                {/* <img className="nav__icon" src={require("../assets/logo/elbowslogo.png")} alt="nav-icon" /> */}
             </Link>
             <SearchIcon className="nav__search--icon" style={{ fontSize: 25 }} />
             <input className="nav__search" placeholder="Search"></input>
             <Link to="/main"><HomeOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
+            <Link to="/upload"><AddPhotoAlternateOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
             <Link to="/explore"><ExploreOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
             <button><FavoriteBorderOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>
             <button onClick={() => props.openModal("account")} className="nav__account"><AccountCircleOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>
