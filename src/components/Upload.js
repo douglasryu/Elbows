@@ -122,6 +122,18 @@ const Upload = () => {
         // setImagePreview(URL.createObjectURL(e.target.files[0]))
     };
 
+    const uploadHandler2 = async event => {
+        event.stopPropagation();
+        const formData = new FormData()
+        formData.append('file', image)
+        const options = {
+            method: "POST",
+            body: formData
+        }
+        const response = await fetch(`${baseUrl}/api/aws/1`, options);
+        console.log(response.json());
+    }
+
     return (
         <div className="upload__container">
             <div {...getRootProps({ style })} className="upload__box">
@@ -137,7 +149,7 @@ const Upload = () => {
             <form method="POST" enctype="multipart/form-data">
                 {/* <input type="file" name="file" /> */}
                 <input className="custom-file-input" type='file' multiple={false} accept='.jpg, .gif, .png, .gif' onChange={onDrop2} />
-                <button onClick={uploadHandler}>Upload</button>
+                <button onClick={uploadHandler2}>Upload</button>
             </form>
         </div>
     )
