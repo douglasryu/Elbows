@@ -28,7 +28,7 @@ const MainPage = props => {
             <Navigation />
             {postsArray.map(post => {
                 return (
-                    <Post key={post.id} post={post} />
+                    <Post key={post.id} post={post} {...props} />
                 );
             })}
         </>

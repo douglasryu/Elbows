@@ -9,7 +9,7 @@ const UploadPage = props => {
         <>
             <Navigation />
             <Modal />
-            <Upload />
+            <Upload {...props} />
         </>
     );
 }

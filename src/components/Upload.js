@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone-uploader'
 
 import { baseUrl } from "../config";
 
-const Upload = () => {
+const Upload = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
 
     const [customInput, setCustomInput] = useState(false);
@@ -39,6 +39,7 @@ const Upload = () => {
         }
         const response = await fetch(`${baseUrl}/api/posts`, options);
         setCustomInput(false);
+        props.history.push("/main");
     }
 
     return (

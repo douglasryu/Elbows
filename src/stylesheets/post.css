@@ -27,6 +27,7 @@
     display: flex;
     margin-left: 10px;
     padding: 10px 0px;
+    /* justify-content: flex-end; */
 }
 
 .post__body--username {
@@ -36,6 +37,20 @@
 
 .post__body {
     text-align: right;
+}
+
+.comment__usercomment {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.comment__user {
+    font-weight: 700;
+}
+
+.comment__comment {
+    margin-left: 10px;
 }
 
 .post__comment {
