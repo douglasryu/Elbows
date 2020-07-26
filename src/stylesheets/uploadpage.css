@@ -1,23 +1,16 @@
 .upload__container {
     position: relative;
-    top: 300px;
+    top: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
+    /* z-index: -1; */
 }
 
-.upload__box {
-    /* margin: 0 auto; */
-    width: 500px;
-
-}
-
-.upload__thumbnail {
-    margin: 0 auto;
-}
-
-.upload__button {
-    background-color: blue;
-    padding: 10px;
+.upload__input {
+    position: relative;
+    bottom: 155px;
+    border: 1px solid black;
+    padding: 5px 5px 5px 5px;
+    /* word-wrap: normal; */
 }

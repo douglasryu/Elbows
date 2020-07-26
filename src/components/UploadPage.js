@@ -1,15 +1,15 @@
 import React from "react";
 
 import Navigation from "./Navigation";
+import Modal from "./Modal";
 import Upload from "./Upload";
-import Upload2 from "./Upload2";
 
 const UploadPage = props => {
     return (
         <>
             <Navigation />
-            {/* <Upload /> */}
-            <Upload2 />
+            <Modal />
+            <Upload />
         </>
     );
 }

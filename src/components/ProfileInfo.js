@@ -1,5 +1,4 @@
 import React from "react";
-import Upload from "./Upload";
 
 const ProfileInfo = () => {
     return (
@@ -20,7 +19,6 @@ const ProfileInfo = () => {
                     </div>
                 </div>
             </div>
-            <Upload />
         </>
     );
 }

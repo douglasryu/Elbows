@@ -10,6 +10,7 @@ import './stylesheets/navigation.css';
 import './stylesheets/landingpage.css';
 import './stylesheets/profilepage.css';
 import './stylesheets/uploadpage.css';
+import './stylesheets/post.css';
 // import './stylesheets/mainpage.css';
 import App from './App';
 
