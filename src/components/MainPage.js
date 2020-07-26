@@ -5,7 +5,7 @@ import Modal from "./Modal";
 import Navigation from "./Navigation";
 import Post from "./Post";
 import { loadToken } from "../actions/sessionActions";
-import { fetchPosts } from "../actions/postActions";
+import { fetchMainPagePosts } from "../actions/postActions";
 
 const MainPage = props => {
     useEffect(() => {
@@ -16,11 +16,12 @@ const MainPage = props => {
 
     useEffect(() => {
         (async () => {
-            await props.fetchPosts(userId);
+            await props.fetchMainPagePosts(userId);
         })();
     }, [userId]);
 
     const postsArray = Object.values(props.posts);
+    console.log(postsArray);
 
     return (
         <>
@@ -46,7 +47,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         loadToken: () => dispatch(loadToken()),
-        fetchPosts: (userId) => dispatch(fetchPosts(userId)),
+        fetchMainPagePosts: (userId) => dispatch(fetchMainPagePosts(userId)),
+        // fetchPosts: (userId) => dispatch(fetchPosts(userId)),
     };
 };
 

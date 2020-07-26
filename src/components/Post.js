@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 
 import { baseUrl } from "../config";
 
@@ -46,14 +47,16 @@ const Post = props => {
     }
 
     // if (commentArray.length === 0) return null;
-    console.log(commentArray);
-    // console.log(props.post);
+    // console.log(commentArray);
+    console.log(props.post);
 
     return (
         <div className="post__container">
             <div className="post__author">{userName}</div>
             <div className="post__location">{props.post.location}</div>
             <img className="post__img" src={props.post.postImage} alt="post-img" />
+            <button className="post__like"><FavoriteBorderOutlinedIcon className="post__like--button" style={{ fontSize: 20 }} /></button>
+            <div className="post__numlikes">{props.post.numLikes} likes</div>
             <div className="post__body--container">
                 <div className="post__body--username">{userName}</div>
                 <div className="post__body">{props.post.postBody}</div>

@@ -1,6 +1,9 @@
 import React from "react";
 
 const ProfileInfo = () => {
+    const userName = window.localStorage.getItem("elbows/authentication/username");
+    const fullName = window.localStorage.getItem("elbows/authentication/name");
+
     return (
         <>
             <div className="profile__info">
@@ -9,7 +12,7 @@ const ProfileInfo = () => {
                 </div>
                 <div className="profile__details">
                     <div className="profile__details--top">
-                        <div className="profile__name">Guest</div>
+                        <div className="profile__name">{userName}</div>
                         <button className="profile__edit">Edit Profile</button>
                     </div>
                     <div className="profile__details--bottom">
