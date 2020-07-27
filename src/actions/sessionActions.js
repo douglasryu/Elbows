@@ -10,8 +10,9 @@ export const loadToken = () => (dispatch) => {
     const user = window.localStorage.getItem("elbows/authentication/USER_ID");
     const name = window.localStorage.getItem("elbows/authentication/name");
     const username = window.localStorage.getItem("elbows/authentication/username");
+    const profilePicUrl = window.localStorage.getItem("elbows/authentication/profilePicUrl");
     if (token) {
-        dispatch(setToken({ token, user, name, username }));
+        dispatch(setToken({ token, user, name, username, profilePicUrl }));
     }
 };
 
@@ -21,6 +22,7 @@ export const createUser = (payload) => async dispatch => {
     window.localStorage.setItem("elbows/authentication/USER_ID", payload.user.id);
     window.localStorage.setItem("elbows/authentication/name", payload.user.name);
     window.localStorage.setItem("elbows/authentication/username", payload.user.username);
+    window.localStorage.setItem("elbows/authentication/profilePicUrl", payload.user.profilePicUrl);
     dispatch(setToken(payload));
 };
 
@@ -31,7 +33,8 @@ export const login = (response) => async dispatch => {
         window.localStorage.setItem("elbows/authentication/USER_ID", payload.user.id);
         window.localStorage.setItem("elbows/authentication/name", payload.user.name);
         window.localStorage.setItem("elbows/authentication/username", payload.user.username);
-        dispatch(setToken({ token: payload.access_token, user: payload.user.id, name: payload.user.name, username: payload.user.username }));
+        window.localStorage.setItem("elbows/authentication/profilePicUrl", payload.user.profilePicUrl);
+        dispatch(setToken({ token: payload.access_token, user: payload.user.id, name: payload.user.name, username: payload.user.username, profilePicUrl: payload.user.profilePicUrl }));
     }
 };
 
@@ -40,5 +43,6 @@ export const logout = () => (dispatch) => {
     window.localStorage.removeItem("elbows/authentication/USER_ID");
     window.localStorage.removeItem("elbows/authentication/name");
     window.localStorage.removeItem("elbows/authentication/username");
+    window.localStorage.removeItem("elbows/authentication/profilePicUrl");
     dispatch(removeToken());
 };

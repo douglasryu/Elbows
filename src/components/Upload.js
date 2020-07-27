@@ -7,8 +7,13 @@ const Upload = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
 
     const [customInput, setCustomInput] = useState(false);
+    const [locationInputText, setLocationInputText] = useState("");
     const [inputText, setInputText] = useState("");
     const [fileUrl, setFileUrl] = useState("");
+
+    const handleLocationTextInput = event => {
+        setLocationInputText(event.target.value);
+    }
 
     const handleTextInput = event => {
         setInputText(event.target.value);
@@ -58,12 +63,13 @@ const Upload = props => {
                     inputLabel: (files, extra) => (extra.reject ? { color: 'red' } : {}),
                     previewImage: { width: 500 },
                     submitButtonContainer: { display: "flex", justifyContent: "center" },
-                    submitButton: { padding: "10px 30px 10px 30px", marginTop: "100px", marginBottom: "-70px", backgroundColor: "rgba(156, 175, 183, 0.7)", borderRadius: "4px" },
+                    submitButton: { padding: "10px 30px 10px 30px", marginTop: "170px", marginBottom: "-70px", backgroundColor: "rgba(156, 175, 183, 0.7)", borderRadius: "4px" },
                     inputLabelWithFiles: { display: "none" },
                 }}
                 submitButtonContent="Upload"
             />
-            {customInput ? <textarea className="upload__input" rows="3" cols="40" wrap="soft" value={inputText} onChange={handleTextInput} placeholder="Add a caption.." /> : null}
+            {customInput ? <label className="upload__location--label">Location: <input className="upload__input--location" value={locationInputText} onChange={handleLocationTextInput} placeholder="Add a location..." /></label> : null}
+            {customInput ? <textarea className="upload__input" rows="3" cols="40" wrap="soft" value={inputText} onChange={handleTextInput} placeholder="Add a caption..." /> : null}
         </div>
     )
 }

@@ -7,10 +7,27 @@
     /* z-index: -1; */
 }
 
-.upload__input {
+.upload__location--label {
     position: relative;
-    bottom: 155px;
+    bottom: 230px;
+    right: 110px;
+    margin: 10px 0px 7px 0px;
+}
+
+.upload__input--location {
     border: 1px solid black;
     padding: 5px 5px 5px 5px;
+}
+
+.upload__input {
+    position: relative;
+    bottom: 220px;
+    border: 1px solid black;
+    padding: 5px 5px 5px 5px;
+    width: 490px;
     /* word-wrap: normal; */
+}
+
+.dzu-previewStatusContainer {
+    display: none;
 }

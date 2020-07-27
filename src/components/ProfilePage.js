@@ -1,38 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import Modal from "./Modal";
 import Navigation from "./Navigation";
 import ProfileInfo from "./ProfileInfo";
-import PersonalPost from "./PersonalPost";
-import Post from "./Post";
+import ProfilePosts from "./ProfilePosts";
 import { fetchPosts } from "../actions/postActions";
+import { loadToken } from "../actions/sessionActions";
+import { baseUrl } from "../config";
 
 const ProfilePage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
+    const [userInformation, setUserInformation] = useState("");
+    const [postsArray, setPostsArray] = useState("");
+    const [profilePic, setProfilePic] = useState("")
+
+    useEffect(() => {
+        props.loadToken();
+    });
 
     useEffect(() => {
         (async () => {
-            await props.fetchPosts(userId);
+            const res = await fetch(`${baseUrl}/api/userinfo/${userId}`);
+            const userInfo = await res.json();
+            setUserInformation(userInfo);
+            setPostsArray(userInfo.posts);
         })();
     }, [userId]);
 
-    const postsArray = Object.values(props.posts);
 
     return (
         <>
             <Modal {...props} />
             <Navigation />
-            <ProfileInfo />
-            <div className="personal__posts--outer">
-                <div className="personal__posts--container">
-                    {postsArray.map(post => {
-                        return (
-                            <PersonalPost key={post.id} post={post} {...props} />
-                        );
-                    })}
-                </div>
-            </div>
+            <ProfileInfo userInfo={userInformation} />
+            <ProfilePosts postsArray={postsArray} />
         </>
     );
 }
@@ -46,6 +48,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        loadToken: () => dispatch(loadToken()),
         fetchPosts: (userId) => dispatch(fetchPosts(userId)),
     };
 };

@@ -1,6 +1,7 @@
 import React from "react";
 
-const ProfileInfo = () => {
+const ProfileInfo = props => {
+    const profilePicUrl = window.localStorage.getItem("elbows/authentication/profilePicUrl");
     const userName = window.localStorage.getItem("elbows/authentication/username");
     const fullName = window.localStorage.getItem("elbows/authentication/name");
 
@@ -8,7 +9,7 @@ const ProfileInfo = () => {
         <>
             <div className="profile__info">
                 <div className="profile__pic--container">
-                    <img className="profile__pic" src={require("../assets/logo/elbowslogo.png")} alt="profile-img" />
+                    <img className="profile__pic" src={profilePicUrl} alt="profile-img" />
                 </div>
                 <div className="profile__details">
                     <div className="profile__details--top">
@@ -16,9 +17,9 @@ const ProfileInfo = () => {
                         <button className="profile__edit">Edit Profile</button>
                     </div>
                     <div className="profile__details--bottom">
-                        <div className="profile__posts">0 posts</div>
-                        <div className="profile__follower">0 follower</div>
-                        <div className="profile__following">0 following</div>
+                        <div className="profile__posts">{props.userInfo.num_posts} posts</div>
+                        <div className="profile__follower">{props.userInfo.numFollower} followers</div>
+                        <div className="profile__following">{props.userInfo.numFollow} following</div>
                     </div>
                 </div>
             </div>

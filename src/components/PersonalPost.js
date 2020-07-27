@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const PersonalPost = props => {
-    const [postArray, setPostArray] = useState("");
+    // const [postArray, setPostArray] = useState("");
 
     return (
         <div className="personal__post">
