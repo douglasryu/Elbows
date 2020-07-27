@@ -11,9 +11,21 @@
     justify-content: center;
 }
 
+.landing__wrap {
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 1000px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
 .landing__header {
     position: relative;
-    bottom: 40px;
+    bottom: 20px;
     font-size: 40px;
     font-weight: 700;
     text-align: center;
@@ -22,6 +34,8 @@
 .session__container {
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 20px;
 }
 
 .landing__signin {
