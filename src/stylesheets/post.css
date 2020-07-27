@@ -37,9 +37,12 @@
 
 .post__like {
     position: relative;
-    /* top: 5px; */
-    /* margin-left: 10px; */
     padding: 5px;
+}
+
+.post__like:hover {
+    filter: brightness(130%);
+    transition: all 0.4s;
 }
 
 .post__numlikes {

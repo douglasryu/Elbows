@@ -4,6 +4,9 @@ const ProfileInfo = props => {
     const profilePicUrl = window.localStorage.getItem("elbows/authentication/profilePicUrl");
     const userName = window.localStorage.getItem("elbows/authentication/username");
     const fullName = window.localStorage.getItem("elbows/authentication/name");
+    const bio = window.localStorage.getItem("elbows/authentication/bio") ? window.localStorage.getItem("elbows/authentication/bio") : "";
+
+    // console.log(props.userInfo["user"]["bio"]);
 
     return (
         <>
@@ -16,10 +19,14 @@ const ProfileInfo = props => {
                         <div className="profile__name">{userName}</div>
                         <button className="profile__edit">Edit Profile</button>
                     </div>
-                    <div className="profile__details--bottom">
+                    <div className="profile__details--middle">
                         <div className="profile__posts">{props.userInfo.num_posts} posts</div>
                         <div className="profile__follower">{props.userInfo.numFollower} followers</div>
                         <div className="profile__following">{props.userInfo.numFollow} following</div>
+                    </div>
+                    <div className="profile__details--bottom">
+                        <div className="profile__user--name">{fullName}</div>
+                        <div className="profile__user--bio">{bio}</div>
                     </div>
                 </div>
             </div>

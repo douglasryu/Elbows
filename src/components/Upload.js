@@ -23,7 +23,7 @@ const Upload = props => {
         const res = await fetch(`${baseUrl}/api/aws/presign/${name}`);
         const { fields, url, fileUrl } = await res.json();
         setFileUrl(fileUrl);
-        console.log(fields, url, fileUrl);
+        // console.log(fields, url, fileUrl);
         return { fields, meta: { fileUrl: fileUrl }, url: url }
     }
 
@@ -40,9 +40,9 @@ const Upload = props => {
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userId, location: "New York", postImage: fileUrl, postBody: inputText }),
+            body: JSON.stringify({ userId, location: locationInputText, postImage: fileUrl, postBody: inputText }),
         }
-        const response = await fetch(`${baseUrl}/api/posts`, options);
+        await fetch(`${baseUrl}/api/posts`, options);
         setCustomInput(false);
         props.history.push("/main");
     }

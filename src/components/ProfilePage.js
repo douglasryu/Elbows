@@ -5,7 +5,6 @@ import Modal from "./Modal";
 import Navigation from "./Navigation";
 import ProfileInfo from "./ProfileInfo";
 import ProfilePosts from "./ProfilePosts";
-import { fetchPosts } from "../actions/postActions";
 import { loadToken } from "../actions/sessionActions";
 import { baseUrl } from "../config";
 
@@ -13,7 +12,6 @@ const ProfilePage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
     const [userInformation, setUserInformation] = useState("");
     const [postsArray, setPostsArray] = useState("");
-    const [profilePic, setProfilePic] = useState("")
 
     useEffect(() => {
         props.loadToken();
@@ -49,7 +47,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         loadToken: () => dispatch(loadToken()),
-        fetchPosts: (userId) => dispatch(fetchPosts(userId)),
     };
 };
 

@@ -32,7 +32,7 @@
 .profile__details {
     display: flex;
     flex-direction: column;
-    margin: 0px 0px 0px 200px;
+    margin: 0px 0px 0px 150px;
 }
 
 .profile__details--top {
@@ -52,8 +52,8 @@
     padding: 3px 5px 3px 5px;
 }
 
-.profile__details--bottom {
-    margin-top: 30px;
+.profile__details--middle {
+    margin-top: 20px;
     display: flex;
 }
 
@@ -63,6 +63,14 @@
 
 .profile__follower {
     margin-right: 20px;
+}
+
+.profile__details--bottom {
+    margin-top: 20px;
+}
+
+.profile__user--name {
+    font-weight: 700;
 }
 
 .personal__posts--outer {

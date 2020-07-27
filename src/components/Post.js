@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import PostUserPicName from "./PostUserPicName";
@@ -6,9 +6,7 @@ import CommentSection from "./CommentSection";
 import LikeButton from "./LikeButton";
 
 const Post = props => {
-    const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
-    const [postData, setPostData] = useState("");
-
+    const [numLikes, setNumLikes] = useState(0);
     const postArray = Object.values(props.postData.result);
 
     return (
@@ -19,7 +17,7 @@ const Post = props => {
                         <PostUserPicName post={post} />
                         <div className="post__location">{post.location}</div>
                         <img className="post__img" src={post.postImage} alt="post-img" />
-                        <LikeButton postId={post.id} {...props} />
+                        <LikeButton postId={post.id} {...props} numLikes={numLikes} setNumLikes={setNumLikes} />
                         <div className="post__numlikes">{post.numLikes} likes</div>
                         <div className="post__body--container">
                             <div className="post__body--username">{post.user_info.username}</div>

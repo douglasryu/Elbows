@@ -59,6 +59,11 @@
     margin-left: 20px;
 }
 
+.signin__button:hover,
+.signin__demo:hover {
+    color: #ffffff;
+}
+
 
 /* Sign Up CSS */
 .signup__page {
@@ -134,4 +139,8 @@
     margin-top: 10px;
     padding: 15px 92px 15px 92px;
     border-radius: 4px;
+}
+
+.signup__button:hover {
+    color: #ffffff;
 }
