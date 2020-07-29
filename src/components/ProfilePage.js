@@ -13,13 +13,15 @@ const ProfilePage = props => {
     const [userInformation, setUserInformation] = useState("");
     const [postsArray, setPostsArray] = useState("");
 
+    const currentProfileId = props.match.params.userId;
+
     useEffect(() => {
         props.loadToken();
     });
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`${baseUrl}/api/userinfo/${userId}`);
+            const res = await fetch(`${baseUrl}/api/userinfo/${currentProfileId}`);
             const userInfo = await res.json();
             setUserInformation(userInfo);
             setPostsArray(userInfo.posts);

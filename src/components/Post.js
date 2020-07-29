@@ -12,6 +12,7 @@ const Post = props => {
     return (
         <div>
             {postArray.reverse().map(post => {
+                // console.log(post.userId)
                 return (
                     <div className="post__container" key={post.id}>
                         <PostUserPicName post={post} />

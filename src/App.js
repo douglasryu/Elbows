@@ -18,7 +18,7 @@ const App = props => {
             <Route path="/main" component={MainPage} />
             <Route path="/upload" component={UploadPage} />
             <Route path="/explore" component={ExplorePage} />
-            <Route path="/profile" component={ProfilePage} />
+            <Route path="/profile/:userId" component={ProfilePage} />
         </BrowserRouter>
     );
 }
