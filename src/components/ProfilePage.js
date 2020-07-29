@@ -17,7 +17,11 @@ const ProfilePage = props => {
 
     useEffect(() => {
         props.loadToken();
-    });
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
 
     useEffect(() => {
         (async () => {
@@ -31,7 +35,7 @@ const ProfilePage = props => {
 
     return (
         <>
-            <Modal {...props} />
+            <Modal {...props} userInfo={userInformation} />
             <Navigation />
             <ProfileInfo userInfo={userInformation} {...props} />
             <ProfilePosts postsArray={postsArray} />

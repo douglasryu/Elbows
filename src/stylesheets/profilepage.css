@@ -91,9 +91,26 @@
     overflow: hidden;
 }
 
+.personal__post:hover .personal__post--overlay {
+    display: flex;
+}
+
 .personal__post--img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     margin: 10px 10px 10px 10px;
 }
+
+.personal__post--overlay {
+    display: none;
+    position: absolute;
+}
+
+/* .personal__post--overlay:hover {
+    display: flex;
+} */
+
+/* .personal__overlay--visible {
+    display: flex;
+} */

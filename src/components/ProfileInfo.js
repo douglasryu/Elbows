@@ -35,8 +35,8 @@ const ProfileInfo = props => {
     const editButton = () => {
         if (userId === props.match.params.userId) {
             return (
-                <button className="profile__edit">Edit Profile</button>
-                // <button onClick={() => props.openModal("edit")} className="profile__edit">Edit Profile</button>
+                // <button className="profile__edit">Edit Profile</button>
+                <button onClick={() => props.openModal("edit")} className="profile__edit">Edit Profile</button>
             );
         } else {
             return (
