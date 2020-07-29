@@ -15,7 +15,7 @@ const ProfileInfo = props => {
     if (!props.userInfo.user) return null;
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
 
-    console.log(props.userInfo);
+    // console.log(props.userInfo);
 
     const handleFollow = async (event) => {
         event.preventDefault();
@@ -35,7 +35,8 @@ const ProfileInfo = props => {
     const editButton = () => {
         if (userId === props.match.params.userId) {
             return (
-                <button onClick={() => props.openModal("edit")} className="profile__edit">Edit Profile</button>
+                <button className="profile__edit">Edit Profile</button>
+                // <button onClick={() => props.openModal("edit")} className="profile__edit">Edit Profile</button>
             );
         } else {
             return (
