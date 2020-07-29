@@ -1,21 +1,14 @@
 import React from "react";
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ModeCommentIcon from '@material-ui/icons/ModeComment';
 
 const PersonalPost = props => {
-    console.log(props.post);
-
-    const handleHover = event => {
-        console.log(event.target.classList.value);
-        // const targetOverlay = document.querySelector(".personal__post--overlay").classList.add("personal__overlay--visible");
-        // event.target.classList;
-    }
-
-    const handleMouseLeave = event => {
-        // const targetOverlay = document.querySelector(".personal__post--overlay").classList.remove("personal__overlay--visible");
-    }
-
     return (
-        <div className="personal__post" onMouseEnter={handleHover} onMouseLeave={handleMouseLeave}>
-            <div className="personal__post--overlay">test</div>
+        <div className="personal__post">
+            <div className="personal__post--overlay">
+                <div className="personal__post--like"><FavoriteIcon />{props.post.like_count}</div>
+                <div className="personal__post--comment"><ModeCommentIcon />{props.post.comment_count}</div>
+            </div>
             <img className="personal__post--img" src={props.post.postImage} alt="post-img" />
         </div>
     );
