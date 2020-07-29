@@ -33,7 +33,7 @@ const ProfilePage = props => {
         <>
             <Modal {...props} />
             <Navigation />
-            <ProfileInfo userInfo={userInformation} />
+            <ProfileInfo userInfo={userInformation} {...props} />
             <ProfilePosts postsArray={postsArray} />
         </>
     );

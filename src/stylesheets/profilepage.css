@@ -4,7 +4,7 @@
     align-items: center;
     position: relative;
     top: 90px;
-    z-index: -2;
+    /* z-index: -2; */
     margin: 0 auto;
     width: 800px;
     padding: 0px 0px 40px 0px;
