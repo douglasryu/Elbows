@@ -19,9 +19,9 @@ const ProfilePage = props => {
         props.loadToken();
     }, []);
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, []);
+    // useEffect(() => {
+    //     window.scrollTo(0, 0)
+    // }, []);
 
     useEffect(() => {
         (async () => {

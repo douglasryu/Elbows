@@ -14,8 +14,12 @@ const AccountModal = props => {
         event.stopPropagation();
     };
 
+
     const handleClick = event => {
-        props.history.push(`/profile/${userId}`);
+        if (props.match.params.userId !== userId) {
+            props.history.push(`/profile/${userId}`);
+            window.location.reload(true);
+        }
         props.closeModal();
     }
 

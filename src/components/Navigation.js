@@ -164,7 +164,7 @@ const Navigation = props => {
             <Link to="/main"><HomeOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
             <Link to="/upload"><AddPhotoAlternateOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
             <Link to="/explore"><ExploreOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
-            <Link to="/favorites"><FavoriteBorderOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
+            <button onClick={() => props.openModal("activity")}><FavoriteBorderOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>
             <button onClick={() => props.openModal("account")} className="nav__account"><AccountCircleOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>
         </nav>
     );

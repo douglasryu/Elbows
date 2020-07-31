@@ -17,6 +17,20 @@
     /* box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); */
 }
 
+/* Activity Modal CSS */
+.activity__modal {
+    position: relative;
+    top: 60px;
+    margin: 0 auto;
+    left: 200px;
+    border: 1px solid rgba(156, 175, 183, 0.5);
+    border-radius: 2px;
+    width: 400px;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+
 /* Account Modal CSS */
 .account__modal {
     position: relative;

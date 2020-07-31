@@ -115,6 +115,23 @@
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.explore__post--container:hover .personal__post--overlay {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 30px;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.personal__post--likecomment {
+    display: flex;
+}
+
 .personal__post--like {
     margin-right: 10px;
 }

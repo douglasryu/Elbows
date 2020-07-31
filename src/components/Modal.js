@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../actions/modalActions";
 
+import ActivityModal from "./ActivityModal";
 import AccountModal from "./AccountModal";
 import EditProfileModal from "./EditProfileModal";
 
@@ -12,6 +13,9 @@ const Modal = (props) => {
 
     let component;
     switch (modal) {
+        case "activity":
+            component = <ActivityModal type={"activity"} {...props} />;
+            break;
         case "account":
             component = <AccountModal type={"account"} {...props} />;
             break;

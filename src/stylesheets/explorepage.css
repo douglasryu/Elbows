@@ -20,6 +20,10 @@
     /* border-bottom: 1px solid black; */
 }
 
+.explore__post--creator {
+    font-weight: 700;
+}
+
 .explore__locationbody {
     display: flex;
     justify-content: space-between;
@@ -27,7 +31,7 @@
 
 .explore__post--location {
     position: relative;
-    font-weight: 700;
+    /* font-weight: 700; */
     /* bottom: 30px; */
 }
 
