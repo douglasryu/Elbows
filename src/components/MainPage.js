@@ -34,15 +34,7 @@ const MainPage = props => {
         })();
     }, [])
 
-    // useEffect(() => {
-    //     (async () => {
-    //         const res = await fetch(`${baseUrl}/api/notification/${userId}`);
-    //         const data = await res.json();
-    //         setNotificationData(data);
-    //     })();
-    // }, []);
 
-    // if (!notificationData) return null;
     if (!postData) return null;
 
     return (

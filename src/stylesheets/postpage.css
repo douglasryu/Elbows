@@ -1,5 +1,5 @@
-.post__container {
-    width: 600px;
+.postpage__container {
+    width: 800px;
     margin: 0 auto;
     position: relative;
     top: 150px;
@@ -8,7 +8,7 @@
     border-radius: 2px;
 }
 
-.post__namelocation {
+.postpage__namelocation {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,15 +27,20 @@
 }
 
 .post__username {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     margin: 10px 0px 0px 10px;
 }
 
-.post__location {
+.postpage__location {
+    font-size: 16px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.postpage__setting {
     position: relative;
     top: 5px;
-    text-align: right;
     margin-right: 10px;
 }
 
@@ -43,9 +48,10 @@
     margin-top: 10px;
 }
 
-.post__numlikestyle {
+.postpage__numlikestyle {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding-left: 5px;
 }
 
@@ -59,7 +65,7 @@
     transition: all 0.4s;
 }
 
-.post__numlikes {
+.postpage__numlikes {
     margin-left: 10px;
     font-weight: 700;
     font-size: 14px;
@@ -68,9 +74,11 @@
     bottom: 1px;
 }
 
-.post__body--container {
+.postpage__body--container {
     display: flex;
+    /* margin-left: 10px; */
     padding: 5px 0px 5px 10px;
+    /* justify-content: flex-end; */
 }
 
 .post__body--username {

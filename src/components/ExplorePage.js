@@ -5,11 +5,10 @@ import Modal from "./Modal";
 import Navigation from "./Navigation";
 import ExplorePageBody from "./ExplorePageBody";
 import { baseUrl } from "../config";
-import { fetchPosts } from "../actions/postActions";
+import { fetchPosts, fetchNotifications } from "../actions/postActions";
 
 const ExplorePage = props => {
-    // const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
-    // const [postData, setPostData] = useState(null);
+    const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
 
     useEffect(() => {
         (async () => {
@@ -17,7 +16,11 @@ const ExplorePage = props => {
         })();
     }, []);
 
-    // console.log(postData);
+    useEffect(() => {
+        (async () => {
+            props.fetchNotifications(userId);
+        })();
+    }, [])
 
     return (
         <>
@@ -37,6 +40,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchPosts: () => dispatch(fetchPosts()),
+        fetchNotifications: (userId) => dispatch(fetchNotifications(userId)),
     };
 };
 

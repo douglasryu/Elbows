@@ -171,13 +171,6 @@ const Navigation = props => {
 }
 
 
-
-// const mapStateToProps = (state) => {
-//     return {
-//         token: state.session.token,
-//     };
-// };
-
 const mapDispatchToProps = (dispatch) => {
     return {
         openModal: (modal) => dispatch(openModal(modal)),
@@ -192,4 +185,3 @@ export default connect(
 )(
     Navigation
 );
-// export default Navigation;

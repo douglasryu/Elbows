@@ -7,6 +7,7 @@ import SignupPage from "./components/SignupPage";
 import MainPage from "./components/MainPage";
 import UploadPage from "./components/UploadPage";
 import ExplorePage from "./components/ExplorePage";
+import PostPage from "./components/PostPage";
 import ProfilePage from './components/ProfilePage';
 import FavoritePage from './components/FavoritePage';
 
@@ -20,6 +21,7 @@ const App = props => {
             <Route path="/upload" component={UploadPage} />
             <Route path="/explore" component={ExplorePage} />
             <Route path="/favorites" component={FavoritePage} />
+            <Route path="/posts/:postId" component={PostPage} />
             <Route path="/profile/:userId" component={ProfilePage} />
         </BrowserRouter>
     );

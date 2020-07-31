@@ -35,6 +35,7 @@ const LikeButton = props => {
             // props.setNumLikes(1);
             props.history.push("/main");
         }
+        window.location.reload(true);
     }
 
     return (

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import PostUserPicName from "./PostUserPicName";
@@ -12,14 +13,25 @@ const Post = props => {
     return (
         <div>
             {postArray.reverse().map(post => {
-                // console.log(post.userId)
+                console.log(post);
                 return (
                     <div className="post__container" key={post.id}>
-                        <PostUserPicName post={post} />
-                        <div className="post__location">{post.location}</div>
-                        <img className="post__img" src={post.postImage} alt="post-img" />
-                        <LikeButton postId={post.id} {...props} numLikes={numLikes} setNumLikes={setNumLikes} />
-                        <div className="post__numlikes">{post.numLikes} likes</div>
+                        <div className="post__namelocation">
+                            <PostUserPicName post={post} />
+                            <div className="post__location">{post.location}</div>
+                        </div>
+                        <Link to={{
+                            pathname: `/posts/${post.id}`,
+                            state: {
+                                post: post,
+                            }
+                        }}>
+                            <img className="post__img" src={post.postImage} alt="post-img" />
+                        </Link>
+                        <div className="post__numlikestyle">
+                            <LikeButton postId={post.id} {...props} numLikes={numLikes} setNumLikes={setNumLikes} />
+                            <div className="post__numlikes">{post.numLikes} likes</div>
+                        </div>
                         <div className="post__body--container">
                             <div className="post__body--username">{post.user_info.username}</div>
                             <div className="post__body">{post.postBody}</div>

@@ -8,15 +8,27 @@ const ActivityModal = props => {
         event.stopPropagation();
     };
 
-    console.log(props.notifications.follows)
     const followsArray = props.notifications.follows;
     const likesArray = props.notifications.likes;
     const commentsArray = props.notifications.comments;
 
-
     return (
         <div className="activity__modal" onClick={handleChildClick}>
-            test
+            {followsArray.map(follow => {
+                return (
+                    <div>{follow} started following you!</div>
+                );
+            })}
+            {likesArray.map(like => {
+                return (
+                    <div>{Object.values(like)} liked your post</div>
+                );
+            })}
+            {commentsArray.map(comment => {
+                return (
+                    <div>{Object.values(comment)} commented on your post</div>
+                );
+            })}
         </div>
     );
 }

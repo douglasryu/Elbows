@@ -5,6 +5,7 @@ import { closeModal } from "../actions/modalActions";
 import ActivityModal from "./ActivityModal";
 import AccountModal from "./AccountModal";
 import EditProfileModal from "./EditProfileModal";
+import PostSettingsModal from "./PostSettingsModal";
 
 const Modal = (props) => {
     const { modal } = props;
@@ -21,6 +22,9 @@ const Modal = (props) => {
             break;
         case "edit":
             component = <EditProfileModal type={"edit"} {...props} />;
+            break;
+        case "postsettings":
+            component = <PostSettingsModal type={"postsettings"} {...props} />;
             break;
         default:
             return null;

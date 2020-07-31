@@ -7,6 +7,7 @@ import ProfileInfo from "./ProfileInfo";
 import ProfilePosts from "./ProfilePosts";
 import { loadToken } from "../actions/sessionActions";
 import { baseUrl } from "../config";
+import { fetchNotifications } from "../actions/postActions";
 
 const ProfilePage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
@@ -32,6 +33,12 @@ const ProfilePage = props => {
         })();
     }, [userId]);
 
+    useEffect(() => {
+        (async () => {
+            props.fetchNotifications(userId);
+        })();
+    }, [])
+
 
     return (
         <>
@@ -44,6 +51,7 @@ const ProfilePage = props => {
 }
 
 
+
 const mapStateToProps = state => {
     return {
         posts: state.posts,
@@ -53,6 +61,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         loadToken: () => dispatch(loadToken()),
+        fetchNotifications: (userId) => dispatch(fetchNotifications(userId)),
     };
 };
 
