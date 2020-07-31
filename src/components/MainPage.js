@@ -39,7 +39,7 @@ const MainPage = props => {
 
     return (
         <>
-            <Modal {...props} />
+            <Modal {...props} postData={postData} />
             <Navigation />
             <Post postData={postData} {...props} />
             {/* {postArray.map(post => {

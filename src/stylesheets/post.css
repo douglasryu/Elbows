@@ -2,13 +2,13 @@
     width: 600px;
     margin: 0 auto;
     position: relative;
-    top: 150px;
+    top: 130px;
     border: 1px solid rgba(156, 175, 183, 0.7);
     margin-bottom: 50px;
     border-radius: 2px;
 }
 
-.post__namelocation {
+.post__namedate {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,9 +32,17 @@
     margin: 10px 0px 0px 10px;
 }
 
-.post__location {
+.post__date {
     position: relative;
     top: 5px;
+    padding-right: 10px;
+    font-size: 14px;
+    font-style: italic;
+    color: rgb(100, 113, 119);
+}
+
+.post__location {
+    font-size: 14px;
     text-align: right;
     margin-right: 10px;
 }
@@ -61,12 +69,12 @@
 }
 
 .post__numlikes {
-    margin-left: 10px;
+    margin-left: 5px;
     font-weight: 700;
     font-size: 14px;
     display: inline-block;
     position: relative;
-    bottom: 3px;
+    bottom: 4px;
 }
 
 .post__body--container {

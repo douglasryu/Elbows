@@ -124,12 +124,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .postsettings__modal {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid rgba(156, 175, 183, 0.5);
     z-index: 4;
     background-color: white;
     border-radius: 4px;
@@ -137,19 +138,19 @@
 
 .postsettings__profile {
     font-size: 20px;
-    color: rgb(100, 113, 119);
+    color: rgb(30, 30, 30);
     text-align: center;
     margin: 20px 20px 20px 20px;
 }
 
 .postsettings__line {
     width: 100%;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(156, 175, 183, 0.5);
 }
 
 .postsettings__delete {
     font-size: 20px;
-    color: rgb(100, 113, 119);
+    color: rgb(30, 30, 30);    
     text-align: center;
     margin: 20px 20px 20px 20px;
 }

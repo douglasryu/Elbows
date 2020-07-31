@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
@@ -10,28 +11,35 @@ import CommentSection from "./CommentSection";
 import { openModal, closeModal } from "../actions/modalActions";
 
 const PostPageBody = props => {
-    const [numLikes, setNumLikes] = useState(0);
-    const post = props.location.state.post;
+    if (!props.postData) return null;
+
+    const postData = props.postData;
 
     return (
         <div className="postpage__container">
             <div className="postpage__namelocation">
-                <PostUserPicName post={post} />
+                <Link to={`/profile/${postData.post.userId}`} className="post__userpicname">
+                    <img className="post__userpic" src={postData.post.user.profilePicUrl} alt="post-user-img" />
+                    <div className="post__username">{postData.post.user.username}</div>
+                </Link>
                 <button onClick={() => props.openModal("postsettings")}><SettingsOutlinedIcon className="postpage__setting" style={{ fontSize: 25, color: "rgb(156, 175, 183)" }} /></button>
             </div>
-            <img className="post__img" src={post.postImage} alt="post-img" />
+            <img className="postpage__img" src={postData.post.postImage} alt="post-img" />
             <div className="postpage__numlikestyle">
                 <div className="postpage__numlikes--container">
-                    <LikeButton postId={post.id} {...props} numLikes={numLikes} setNumLikes={setNumLikes} />
-                    <div className="postpage__numlikes">{post.numLikes} likes</div>
+                    <LikeButton postId={postData.post.id} {...props} />
+                    <div className="postpage__numlikes">{postData.likes.length} likes</div>
                 </div>
-                <div className="postpage__location">{post.location}</div>
+                <div className="postpage__locationdate">
+                    <div className="postpage__location">{postData.post.location}</div>
+                    <div className="postpage__date">{postData.post.created_at.split("2020")[0]}</div>
+                </div>
             </div>
             <div className="postpage__body--container">
-                <div className="post__body--username">{post.user_info.username}</div>
-                <div className="post__body">{post.postBody}</div>
+                <div className="postpage__body--username">{postData.post.user.username}</div>
+                <div className="postpage__body">{postData.post.postBody}</div>
             </div>
-            <CommentSection postId={post.id} />
+            <CommentSection postId={postData.post.id} />
         </div>
     );
 }

@@ -34,12 +34,26 @@ const PostSettingsModal = props => {
         }
     }
 
+    const checkCreator = () => {
+        if (props.location.state.post.userId === parseInt(userId, 10)) {
+            return (
+                <>
+                    <button onClick={handleProfilePicChange} className="postsettings__profile">Set as profile picture</button>
+                    <div className="postsettings__line"></div>
+                    <button onClick={handleDelete} className="postsettings__delete">Delete Post</button>
+                </>
+            );
+        } else {
+            return (
+                <button onClick={handleProfilePicChange} className="postsettings__profile">Set as profile picture</button>
+            );
+        }
+    }
+
     return (
         <div className="postsettings__background">
             <div className="postsettings__modal" onClick={handleChildClick}>
-                <button onClick={handleProfilePicChange} className="postsettings__profile">Set as profile picture</button>
-                <div className="postsettings__line"></div>
-                <button onClick={handleDelete} className="postsettings__delete">Delete Post</button>
+                {checkCreator()}
             </div>
         </div>
     );

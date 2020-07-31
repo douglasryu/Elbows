@@ -15,11 +15,15 @@ const Post = props => {
     return (
         <div>
             {postArray.reverse().map(post => {
+                console.log(post);
                 return (
                     <div className="post__container" key={post.id}>
-                        <div className="post__namelocation">
-                            <PostUserPicName post={post} />
-                            <button onClick={() => props.openModal("postsettings")}><SettingsOutlinedIcon className="postpage__setting" style={{ fontSize: 25, color: "rgb(156, 175, 183)" }} /></button>
+                        <div className="post__namedate">
+                            <Link to={`/profile/${post.userId}`} className="post__userpicname">
+                                <img className="post__userpic" src={post.user_info.profilePicUrl} alt="post-user-img" />
+                                <div className="post__username">{post.user_info.username}</div>
+                            </Link>
+                            <div className="post__date">{post.created_at.split("2020")[0]}</div>
                         </div>
                         <Link to={{
                             pathname: `/posts/${post.id}`,
@@ -31,7 +35,7 @@ const Post = props => {
                         </Link>
                         <div className="post__numlikestyle">
                             <div className="postpage__numlikes--container">
-                                <LikeButton postId={post.id} {...props} numLikes={numLikes} setNumLikes={setNumLikes} />
+                                <LikeButton postId={post.id} {...props} />
                                 <div className="post__numlikes">{post.numLikes} likes</div>
                             </div>
                             <div className="post__location">{post.location}</div>

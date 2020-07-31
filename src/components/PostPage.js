@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 import Modal from "./Modal";
 import Navigation from "./Navigation";
-import PostUserPicName from "./PostUserPicName";
-import LikeButton from "./LikeButton";
-import CommentSection from "./CommentSection";
-import { openModal, closeModal } from "../actions/modalActions";
 import PostPageBody from "./PostPageBody";
+import { baseUrl } from "../config";
 
 const PostPage = props => {
-    // const [numLikes, setNumLikes] = useState(0);
-    const post = props.location.state.post;
+    const [postData, setPostData] = useState("");
+    const postId = parseInt(props.match.params.postId, 10);
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`${baseUrl}/api/posts/info/${postId}`);
+            const data = await res.json();
+            setPostData(data);
+        })();
+    }, []);
 
     return (
         <>
             <Modal {...props} />
             <Navigation />
-            <PostPageBody {...props} />
+            <PostPageBody {...props} postData={postData} />
         </>
     );
 }

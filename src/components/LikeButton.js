@@ -8,9 +8,6 @@ import { baseUrl } from "../config";
 const LikeButton = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
     const postId = props.postId;
-    // const [postData, setPostData] = useState("");
-    // const [liked, setLiked] = useState("");
-    // const [numLikes, setNumLikes] = useState(props.numLikes);
 
     const LikeIcon = props => {
         return (
@@ -21,8 +18,7 @@ const LikeButton = props => {
     }
 
     const handlePostLikes = async (event) => {
-        // event.preventDefault();
-        // event.stopPropagation();
+        event.preventDefault();
         event.target.classList.add(".red");
         const options = {
             method: 'POST',
@@ -31,11 +27,8 @@ const LikeButton = props => {
         }
         const res = await fetch(`${baseUrl}/api/likes`, options);
         if (res.ok) {
-            // setLiked("true");
-            // props.setNumLikes(1);
-            props.history.push("/main");
+            window.location.reload(true);
         }
-        window.location.reload(true);
     }
 
     return (
