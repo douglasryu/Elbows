@@ -16,7 +16,6 @@ const ExplorePageBody = props => {
         <div className="explorepage__wrap">
             <div className="explorepage">
                 {postsArray.reverse().map(post => {
-                    console.log(post);
                     return (
                         <div className="explore__post--container" key={post.id}>
                             <div className="explore__locationbody">

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 import PostUserPicName from "./PostUserPicName";
 import CommentSection from "./CommentSection";
 import LikeButton from "./LikeButton";
+import { openModal, closeModal } from "../actions/modalActions";
 
 const Post = props => {
     const [numLikes, setNumLikes] = useState(0);
@@ -13,12 +15,11 @@ const Post = props => {
     return (
         <div>
             {postArray.reverse().map(post => {
-                console.log(post);
                 return (
                     <div className="post__container" key={post.id}>
                         <div className="post__namelocation">
                             <PostUserPicName post={post} />
-                            <div className="post__location">{post.location}</div>
+                            <button onClick={() => props.openModal("postsettings")}><SettingsOutlinedIcon className="postpage__setting" style={{ fontSize: 25, color: "rgb(156, 175, 183)" }} /></button>
                         </div>
                         <Link to={{
                             pathname: `/posts/${post.id}`,
@@ -29,8 +30,11 @@ const Post = props => {
                             <img className="post__img" src={post.postImage} alt="post-img" />
                         </Link>
                         <div className="post__numlikestyle">
-                            <LikeButton postId={post.id} {...props} numLikes={numLikes} setNumLikes={setNumLikes} />
-                            <div className="post__numlikes">{post.numLikes} likes</div>
+                            <div className="postpage__numlikes--container">
+                                <LikeButton postId={post.id} {...props} numLikes={numLikes} setNumLikes={setNumLikes} />
+                                <div className="post__numlikes">{post.numLikes} likes</div>
+                            </div>
+                            <div className="post__location">{post.location}</div>
                         </div>
                         <div className="post__body--container">
                             <div className="post__body--username">{post.user_info.username}</div>
@@ -52,10 +56,17 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        openModal: (modal) => dispatch(openModal(modal)),
+        closeModal: () => dispatch(closeModal()),
+    };
+};
+
 
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(
     Post
 );

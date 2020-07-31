@@ -39,7 +39,6 @@ const ProfilePage = props => {
         })();
     }, [])
 
-
     return (
         <>
             <Modal {...props} userInfo={userInformation} />

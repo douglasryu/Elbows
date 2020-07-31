@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { closeModal } from "../actions/modalActions";
 
@@ -14,19 +15,20 @@ const ActivityModal = props => {
 
     return (
         <div className="activity__modal" onClick={handleChildClick}>
-            {followsArray.map(follow => {
+            {followsArray.map((follow, i) => {
                 return (
-                    <div>{follow} started following you!</div>
+                    <div key={i} className="notification__item">{follow} started following you!</div>
                 );
             })}
-            {likesArray.map(like => {
+            {likesArray.map((like, i) => {
+                console.log(like)
                 return (
-                    <div>{Object.values(like)} liked your post</div>
+                    <Link to={`/posts/${Object.keys(like)}`}><div key={i} className="notification__item">{Object.values(like)} liked your post</div></Link>
                 );
             })}
-            {commentsArray.map(comment => {
+            {commentsArray.map((comment, i) => {
                 return (
-                    <div>{Object.values(comment)} commented on your post</div>
+                    <div key={i} className="notification__item">{Object.values(comment)} commented on your post</div>
                 );
             })}
         </div>
