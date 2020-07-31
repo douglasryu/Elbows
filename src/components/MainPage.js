@@ -5,12 +5,13 @@ import Modal from "./Modal";
 import Navigation from "./Navigation";
 import Post from "./Post";
 import { loadToken } from "../actions/sessionActions";
-import { fetchMainPagePosts } from "../actions/postActions";
+import { fetchMainPagePosts, fetchNotifications } from "../actions/postActions";
 import { baseUrl } from "../config";
 
 const MainPage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
     const [postData, setPostData] = useState("");
+    // const [notificationData, setNotificationData] = useState("");
 
     useEffect(() => {
         props.loadToken();
@@ -27,9 +28,22 @@ const MainPage = props => {
         }
     }, [userId]);
 
-    // const postsArray = Object.values(props.posts);
-    // console.log(postArray.result);
-    if (postData.length === 0) return null;
+    useEffect(() => {
+        (async () => {
+            props.fetchNotifications(userId);
+        })();
+    }, [])
+
+    // useEffect(() => {
+    //     (async () => {
+    //         const res = await fetch(`${baseUrl}/api/notification/${userId}`);
+    //         const data = await res.json();
+    //         setNotificationData(data);
+    //     })();
+    // }, []);
+
+    // if (!notificationData) return null;
+    if (!postData) return null;
 
     return (
         <>
@@ -57,6 +71,7 @@ const mapDispatchToProps = dispatch => {
     return {
         loadToken: () => dispatch(loadToken()),
         fetchMainPagePosts: (userId) => dispatch(fetchMainPagePosts(userId)),
+        fetchNotifications: (userId) => dispatch(fetchNotifications(userId)),
     };
 };
 

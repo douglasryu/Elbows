@@ -1,5 +1,4 @@
-import { LOAD_MAIN_POSTS } from "../actions/postActions";
-import { LOAD_POSTS } from "../actions/postActions";
+import { LOAD_MAIN_POSTS, LOAD_NOTIFICATIONS, LOAD_POSTS } from "../actions/postActions";
 
 const postReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -11,6 +10,8 @@ const postReducer = (state = {}, action) => {
             let newState = {};
             action.list.result.forEach(post => newState[post.id] = post);
             return Object.assign(nextState, newState);
+        // case LOAD_NOTIFICATIONS:
+        //     return action.list;
         case LOAD_POSTS:
             let newState2 = {};
             action.list.posts.forEach(post => newState2[post.id] = post);

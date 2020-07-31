@@ -4,12 +4,16 @@ import { connect } from "react-redux";
 import { closeModal } from "../actions/modalActions";
 
 const ActivityModal = props => {
-
     const handleChildClick = (event) => {
         event.stopPropagation();
     };
 
-    console.log(props);
+    console.log(props.notifications.follows)
+    const followsArray = props.notifications.follows;
+    const likesArray = props.notifications.likes;
+    const commentsArray = props.notifications.comments;
+
+
     return (
         <div className="activity__modal" onClick={handleChildClick}>
             test
@@ -17,6 +21,12 @@ const ActivityModal = props => {
     );
 }
 
+
+const mapStateToProps = (state) => {
+    return {
+        notifications: state.notifications,
+    };
+};
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -26,7 +36,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(
     ActivityModal
