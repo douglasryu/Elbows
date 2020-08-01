@@ -34,10 +34,8 @@ const PostSettingsModal = props => {
         }
     }
 
-    // console.log(props.postData.result[props.match.params.postId - 1].postImage);
-
     const checkCreator = () => {
-        if (props.userInfo.user.id === parseInt(userId, 10)) {
+        if (props.userId === parseInt(userId, 10)) {
             return (
                 <>
                     <button onClick={handleProfilePicChange} className="postsettings__profile">Set as profile picture</button>

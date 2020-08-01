@@ -47,9 +47,12 @@ const PostPage = props => {
         })();
     }, [userId]);
 
+    if (!postData) return null;
+    // console.log(postData.post.user.id);
+
     return (
         <>
-            <Modal {...props} userInfo={userInformation} postData={postInfo} />
+            <Modal {...props} userInfo={userInformation} postData={postInfo} userId={postData.post.user.id} />
             <Navigation />
             <PostPageBody {...props} postData={postData} />
         </>

@@ -23,6 +23,7 @@ const AccountModal = props => {
     }
 
     const handleLogout = event => {
+        props.closeModal();
         props.logout();
         props.history.push("/");
     }

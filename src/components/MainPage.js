@@ -39,7 +39,7 @@ const MainPage = props => {
         (async () => {
             props.fetchNotifications(userId);
         })();
-    }, [])
+    }, [userId])
 
     if (!postData) return null;
 

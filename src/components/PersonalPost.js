@@ -8,17 +8,7 @@ const PersonalPost = props => {
 
     return (
         <div className="personal__post">
-            <Link to={{
-                pathname: `/posts/${post.id}`,
-                state: {
-                    post: {
-                        ...post, user_info: {
-                            username: window.localStorage.getItem("elbows/authentication/username"),
-                            profilePicUrl: props.post.profilePic,
-                        }
-                    },
-                }
-            }}>
+            <Link to={`/posts/${post.id}`}>
                 <div className="personal__post--overlay">
                     <div className="personal__post--like"><FavoriteIcon />{props.post.numLikes}</div>
                     <div className="personal__post--comment"><ModeCommentIcon />{props.post.comment_count}</div>
