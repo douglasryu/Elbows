@@ -11,7 +11,7 @@ import { baseUrl } from "../config";
 const MainPage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
     const [postData, setPostData] = useState("");
-    // const [notificationData, setNotificationData] = useState("");
+    const [userInformation, setUserInformation] = useState("");
 
     useEffect(() => {
         props.loadToken();
@@ -20,7 +20,6 @@ const MainPage = props => {
     useEffect(() => {
         if (userId) {
             (async () => {
-                // const res = await props.fetchMainPagePosts(userId);
                 const res = await fetch(`${baseUrl}/api/main/${userId}`);
                 const data = await res.json();
                 setPostData(data);
@@ -30,23 +29,25 @@ const MainPage = props => {
 
     useEffect(() => {
         (async () => {
+            const res = await fetch(`${baseUrl}/api/userinfo/${userId}`);
+            const userInfo = await res.json();
+            setUserInformation(userInfo);
+        })();
+    }, [userId]);
+
+    useEffect(() => {
+        (async () => {
             props.fetchNotifications(userId);
         })();
     }, [])
-
 
     if (!postData) return null;
 
     return (
         <>
-            <Modal {...props} postData={postData} />
+            <Modal {...props} postData={postData} userInfo={userInformation} />
             <Navigation />
             <Post postData={postData} {...props} />
-            {/* {postArray.map(post => {
-                return (
-                    <Post key={post.id} post={post} {...props} />
-                );
-            })} */}
         </>
     );
 }

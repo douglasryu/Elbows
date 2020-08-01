@@ -12,6 +12,7 @@ import { fetchNotifications } from "../actions/postActions";
 const ProfilePage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
     const [userInformation, setUserInformation] = useState("");
+    const [postData, setPostData] = useState("");
     const [postsArray, setPostsArray] = useState("");
 
     const currentProfileId = props.match.params.userId;
@@ -19,10 +20,6 @@ const ProfilePage = props => {
     useEffect(() => {
         props.loadToken();
     }, []);
-
-    // useEffect(() => {
-    //     window.scrollTo(0, 0)
-    // }, []);
 
     useEffect(() => {
         (async () => {
@@ -39,9 +36,19 @@ const ProfilePage = props => {
         })();
     }, [])
 
+    useEffect(() => {
+        if (userId) {
+            (async () => {
+                const res = await fetch(`${baseUrl}/api/main/${userId}`);
+                const data = await res.json();
+                setPostData(data);
+            })();
+        }
+    }, [userId]);
+
     return (
         <>
-            <Modal {...props} userInfo={userInformation} />
+            <Modal {...props} userInfo={userInformation} postData={postData} />
             <Navigation />
             <ProfileInfo userInfo={userInformation} {...props} />
             <ProfilePosts postsArray={postsArray} />

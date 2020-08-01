@@ -1,6 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { closeModal } from "../actions/modalActions";
 
@@ -16,8 +16,7 @@ const ActivityModal = props => {
     const commentsArray = props.notifications.comments;
 
     return (
-        // <div>test</div>
-        <div className="activity__modal" onClick={handleChildClick}>
+        <div className="notification__modal" onClick={handleChildClick}>
             {followsArray.map((follow, i) => {
                 return (
                     <Link to={`/profile/${follow.id}`} key={i}><div className="notification__item">{follow.username} started following you!</div></Link>

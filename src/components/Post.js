@@ -15,7 +15,7 @@ const Post = props => {
     return (
         <div>
             {postArray.reverse().map(post => {
-                console.log(post);
+                // console.log(post);
                 return (
                     <div className="post__container" key={post.id}>
                         <div className="post__namedate">

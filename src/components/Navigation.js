@@ -174,7 +174,6 @@ const Navigation = props => {
 const mapDispatchToProps = (dispatch) => {
     return {
         openModal: (modal) => dispatch(openModal(modal)),
-        // logout: () => dispatch(logout()),
     };
 };
 

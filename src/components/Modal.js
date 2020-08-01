@@ -11,17 +11,18 @@ const Modal = (props) => {
     const { modal } = props;
 
     if (!modal) return null;
+    console.log(props);
 
     let component;
     switch (modal) {
-        case "activity":
-            component = <ActivityModal type={"activity"} {...props} />;
-            break;
         case "account":
             component = <AccountModal type={"account"} {...props} />;
             break;
         case "edit":
             component = <EditProfileModal type={"edit"} {...props} />;
+            break;
+        case "activity":
+            component = <ActivityModal type={"activity"} {...props} />;
             break;
         case "postsettings":
             component = <PostSettingsModal type={"postsettings"} {...props} />;

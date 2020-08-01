@@ -18,7 +18,7 @@
 }
 
 /* Activity Modal CSS */
-.activity__modal {
+.notification__modal {
     position: relative;
     top: 60px;
     margin: 0 auto;

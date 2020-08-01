@@ -14,7 +14,6 @@ const AccountModal = props => {
         event.stopPropagation();
     };
 
-
     const handleClick = event => {
         if (props.match.params.userId !== userId) {
             props.history.push(`/profile/${userId}`);
@@ -38,11 +37,6 @@ const AccountModal = props => {
     );
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         modal: state.modal,
-//     };
-// };
 
 const mapDispatchToProps = (dispatch) => {
     return {
