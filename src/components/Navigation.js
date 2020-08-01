@@ -8,12 +8,17 @@ import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 
-import { openModal } from "../actions/modalActions";
+import { openModal, closeModal } from "../actions/modalActions";
 
 const Navigation = props => {
+    const closeModalHandler = event => {
+        // event.preventDefault()
+        props.closeModal();
+    }
+
     return (
         <nav className="nav__container">
-            <Link to="/main" className="nav__logo">
+            <Link to="/main" onClick={closeModalHandler} className="nav__logo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="150px" height="60px" viewBox="0 0 480 100">
                     <path id="Path"
                         fill="none" stroke="black" stroke-width="1"
@@ -161,9 +166,9 @@ const Navigation = props => {
             </Link>
             <SearchIcon className="nav__search--icon" style={{ fontSize: 25 }} />
             <input className="nav__search" placeholder="Search"></input>
-            <Link to="/main"><HomeOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
-            <Link to="/upload"><AddPhotoAlternateOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
-            <Link to="/explore"><ExploreOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
+            <Link onClick={closeModalHandler} to="/main"><HomeOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
+            <Link onClick={closeModalHandler} to="/upload"><AddPhotoAlternateOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
+            <Link onClick={closeModalHandler} to="/explore"><ExploreOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
             <button onClick={() => props.openModal("activity")}><FavoriteBorderOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>
             <button onClick={() => props.openModal("account")} className="nav__account"><AccountCircleOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>
         </nav>
@@ -174,6 +179,7 @@ const Navigation = props => {
 const mapDispatchToProps = (dispatch) => {
     return {
         openModal: (modal) => dispatch(openModal(modal)),
+        closeModal: () => dispatch(closeModal()),
     };
 };
 
