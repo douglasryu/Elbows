@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import { baseUrl } from "../config";
@@ -16,7 +16,7 @@ const PostSettingsModal = props => {
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ newFullName: "", newUserName: "", newBio: "", newProfilePicUrl: props.location.state.post.postImage })
+            body: JSON.stringify({ newFullName: "", newUserName: "", newBio: "", newProfilePicUrl: props.postData.result[props.match.params.postId - 1].postImage })
         }
         const res = await fetch(`${baseUrl}/api/users/update/${userId}`, options);
         if (res.status === 200) {
@@ -27,15 +27,17 @@ const PostSettingsModal = props => {
 
     const handleDelete = async (event) => {
         event.preventDefault();
-        const res = await fetch(`${baseUrl}/api/posts/delete/${props.location.state.post.id}`)
+        const res = await fetch(`${baseUrl}/api/posts/delete/${props.match.params.postId}`)
         if (res.ok) {
             props.closeModal();
             props.history.push("/main");
         }
     }
 
+    // console.log(props.postData.result[props.match.params.postId - 1].postImage);
+
     const checkCreator = () => {
-        if (props.location.state.post.userId === parseInt(userId, 10)) {
+        if (props.userInfo.user.id === parseInt(userId, 10)) {
             return (
                 <>
                     <button onClick={handleProfilePicChange} className="postsettings__profile">Set as profile picture</button>

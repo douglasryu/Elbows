@@ -21,7 +21,7 @@ const PostPage = props => {
             const data = await res.json();
             setPostData(data);
         })();
-    }, []);
+    }, [postId]);
 
     useEffect(() => {
         if (userId) {

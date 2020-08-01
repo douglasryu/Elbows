@@ -25,18 +25,13 @@ const Post = props => {
                             </Link>
                             <div className="post__date">{post.created_at.split("2020")[0]}</div>
                         </div>
-                        <Link to={{
-                            pathname: `/posts/${post.id}`,
-                            state: {
-                                post: post,
-                            }
-                        }}>
+                        <Link to={`/posts/${post.id}`}>
                             <img className="post__img" src={post.postImage} alt="post-img" />
                         </Link>
                         <div className="post__numlikestyle">
                             <div className="postpage__numlikes--container">
                                 <LikeButton postId={post.id} {...props} />
-                                <div className="post__numlikes">{post.numLikes} likes</div>
+                                <div className={`post__numlikes${post.id} post__numlikes`}>{post.numLikes} likes</div>
                             </div>
                             <div className="post__location">{post.location}</div>
                         </div>
@@ -48,7 +43,7 @@ const Post = props => {
                     </div>
                 )
             })}
-        </div>
+        </div >
     );
 }
 

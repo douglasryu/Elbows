@@ -117,6 +117,8 @@
 }
 
 .post__comment--post {
-    color: blue;
+    color: rgb(0, 132, 255);
     margin-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
 }

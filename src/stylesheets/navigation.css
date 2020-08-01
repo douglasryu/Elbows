@@ -16,6 +16,7 @@
     font-weight: 600;
     margin: 0px 0px 0px auto;
     display: flex;
+    /* z-index: ; */
 }
 
 .nav__icon {

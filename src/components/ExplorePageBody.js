@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ModeCommentIcon from '@material-ui/icons/ModeComment';
 
 
 const ExplorePageBody = props => {
-    // const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
-    // const [postData, setPostData] = useState("");
-
     const postsArray = Object.values(props.posts);
-    // console.log(postsArray);
-    // if (postsArray.length === 0) return null;
 
     return (
         <div className="explorepage__wrap">
@@ -19,8 +14,8 @@ const ExplorePageBody = props => {
                     return (
                         <div className="explore__post--container" key={post.id}>
                             <div className="explore__locationbody">
-                                <div className="explore__post--creator">{post.creator}</div>
-                                <div className="explore__post--body">{post.created_at.split("2020")[0]}</div>
+                                {/* <div className="explore__post--creator">{post.creator}</div>
+                                <div className="explore__post--body">{post.created_at.split("2020")[0]}</div> */}
                             </div>
                             <div className="personal__post--overlay">
                                 <div className="personal__post--likecomment">

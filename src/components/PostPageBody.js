@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
-import Modal from "./Modal";
-import Navigation from "./Navigation";
-import PostUserPicName from "./PostUserPicName";
 import LikeButton from "./LikeButton";
 import CommentSection from "./CommentSection";
 import { openModal, closeModal } from "../actions/modalActions";
@@ -28,7 +25,7 @@ const PostPageBody = props => {
             <div className="postpage__numlikestyle">
                 <div className="postpage__numlikes--container">
                     <LikeButton postId={postData.post.id} {...props} />
-                    <div className="postpage__numlikes">{postData.likes.length} likes</div>
+                    <div className={`post__numlikes${postData.post.id} postpage__numlikes`}>{postData.likes.length} likes</div>
                 </div>
                 <div className="postpage__locationdate">
                     <div className="postpage__location">{postData.post.location}</div>

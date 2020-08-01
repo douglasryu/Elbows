@@ -30,7 +30,7 @@ const UploadPage = props => {
 
     return (
         <>
-            <Modal userInfo={userInformation} postData={postData} />
+            <Modal {...props} userInfo={userInformation} postData={postData} />
             <Navigation />
             <Upload {...props} />
         </>

@@ -11,7 +11,6 @@ const Modal = (props) => {
     const { modal } = props;
 
     if (!modal) return null;
-    console.log(props);
 
     let component;
     switch (modal) {
