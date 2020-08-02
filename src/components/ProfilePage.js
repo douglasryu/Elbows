@@ -28,7 +28,7 @@ const ProfilePage = props => {
             setUserInformation(userInfo);
             setPostsArray(userInfo.posts);
         })();
-    }, [userId]);
+    }, [currentProfileId]);
 
     useEffect(() => {
         (async () => {

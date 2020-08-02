@@ -16,7 +16,9 @@ const PostPageBody = props => {
         <div className="postpage__container">
             <div className="postpage__namelocation">
                 <Link to={`/profile/${postData.post.userId}`} className="post__userpicname">
-                    <img className="post__userpic" src={postData.post.user.profilePicUrl} alt="post-user-img" />
+                    <div className="post__userpic--contianer">
+                        <img className="post__userpic" src={postData.post.user.profilePicUrl} alt="post-user-img" />
+                    </div>
                     <div className="post__username">{postData.post.user.username}</div>
                 </Link>
                 <button onClick={() => props.openModal("postsettings")}><SettingsOutlinedIcon className="postpage__setting" style={{ fontSize: 25, color: "rgb(156, 175, 183)" }} /></button>

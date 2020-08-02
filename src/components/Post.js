@@ -20,7 +20,9 @@ const Post = props => {
                     <div className="post__container" key={post.id}>
                         <div className="post__namedate">
                             <Link to={`/profile/${post.userId}`} className="post__userpicname">
-                                <img className="post__userpic" src={post.user_info.profilePicUrl} alt="post-user-img" />
+                                <div className="post__userpic--contianer">
+                                    <img className="post__userpic" src={post.user_info.profilePicUrl} alt="post-user-img" />
+                                </div>
                                 <div className="post__username">{post.user_info.username}</div>
                             </Link>
                             <div className="post__date">{post.created_at.split("2020")[0]}</div>

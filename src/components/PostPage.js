@@ -48,7 +48,6 @@ const PostPage = props => {
     }, [userId]);
 
     if (!postData) return null;
-    // console.log(postData.post.user.id);
 
     return (
         <>

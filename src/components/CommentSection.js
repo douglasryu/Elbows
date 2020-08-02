@@ -15,7 +15,7 @@ const CommentSection = props => {
             const data = await res.json();
             setCommentArray(data.comments);
         })();
-    }, [comment]);
+    }, [postId]);
 
     const handleInput = event => {
         setComment(event.target.value);

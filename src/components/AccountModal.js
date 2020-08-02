@@ -31,7 +31,7 @@ const AccountModal = props => {
     return (
         <div className="account__modal" onClick={handleChildClick}>
             <button onClick={handleClick} className="account__modal--item"><PersonOutlineIcon className="account__modal--icon" style={{ fontSize: 21 }} /> Profile</button>
-            <button className="account__modal--item"><BookmarkBorderOutlinedIcon className="account__modal--icon" style={{ fontSize: 18 }} /> Saved</button>
+            {/* <button className="account__modal--item"><BookmarkBorderOutlinedIcon className="account__modal--icon" style={{ fontSize: 18 }} /> Saved</button> */}
             <button className="account__modal--item" onClick={() => props.openModal("edit")}><SettingsOutlinedIcon className="account__modal--icon" style={{ fontSize: 18 }} /> Settings</button>
             <button className="account__modal--logout" onClick={handleLogout}>Log Out</button>
         </div>
