@@ -13,6 +13,7 @@ const MainPage = props => {
     const [postData, setPostData] = useState("");
     const [userInformation, setUserInformation] = useState("");
 
+
     useEffect(() => {
         props.loadToken();
     });
@@ -41,6 +42,7 @@ const MainPage = props => {
         })();
     }, [userId])
 
+    if (!userId) return null;
     if (!postData) return null;
 
     return (

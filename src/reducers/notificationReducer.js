@@ -7,7 +7,7 @@ const notificationReducer = (state = {}, action) => {
 
     switch (action.type) {
         case LOAD_NOTIFICATIONS:
-            return action.list.notification;
+            return action.list.notifications;
         default:
             return state;
     }

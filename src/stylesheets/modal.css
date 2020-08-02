@@ -25,15 +25,54 @@
     left: 200px;
     border: 1px solid rgba(156, 175, 183, 0.5);
     border-radius: 2px;
-    width: 300px;
+    width: 400px;
     z-index: 1;
     background-color: #ffffff;
 }
 
-.notification__item {
-    padding: 10px 0px 10px 20px;
+.notification__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px 5px 15px;
     border-bottom: 1px solid rgba(156, 175, 183, 0.5);
 }
+
+.notification__picname {
+    display: flex;
+    align-items: center;
+}
+
+.notification__userpic {
+    width: 30px;
+    border: 1px solid rgba(156, 175, 183, 0.5);
+    border-radius: 50%;
+}
+
+.notification__item {
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+.notification__username {
+    font-weight: 700;
+}
+
+.notification__postpic--container {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    /* justify-self: flex-end; */
+    margin-left: 15px;
+}
+
+.notification__postpic {
+    width: 80px;
+}
+
 
 /* Account Modal CSS */
 .account__modal {
