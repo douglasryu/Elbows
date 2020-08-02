@@ -14,11 +14,20 @@ const ProfilePage = props => {
     const [userInformation, setUserInformation] = useState("");
     const [postData, setPostData] = useState("");
     const [postsArray, setPostsArray] = useState("");
+    const [users, setUsers] = useState("");
 
     const currentProfileId = props.match.params.userId;
 
     useEffect(() => {
         props.loadToken();
+    }, []);
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`${baseUrl}/api/users/search`);
+            const data = await res.json();
+            setUsers(data);
+        })();
     }, []);
 
     useEffect(() => {
@@ -46,10 +55,12 @@ const ProfilePage = props => {
         }
     }, [userId]);
 
+    if (!users) return null;
+
     return (
         <>
             <Modal {...props} userInfo={userInformation} postData={postData} />
-            <Navigation />
+            <Navigation {...props} users={users} />
             <ProfileInfo userInfo={userInformation} {...props} />
             <ProfilePosts postsArray={postsArray} />
         </>

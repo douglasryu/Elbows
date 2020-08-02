@@ -12,11 +12,19 @@ const MainPage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
     const [postData, setPostData] = useState("");
     const [userInformation, setUserInformation] = useState("");
-
+    const [users, setUsers] = useState("");
 
     useEffect(() => {
         props.loadToken();
     });
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`${baseUrl}/api/users/search`);
+            const data = await res.json();
+            setUsers(data);
+        })();
+    }, []);
 
     useEffect(() => {
         if (userId) {
@@ -44,11 +52,12 @@ const MainPage = props => {
 
     if (!userId) return null;
     if (!postData) return null;
+    if (!users) return null;
 
     return (
         <>
             <Modal {...props} postData={postData} userInfo={userInformation} />
-            <Navigation {...props} />
+            <Navigation {...props} users={users} />
             <Post postData={postData} {...props} />
         </>
     );

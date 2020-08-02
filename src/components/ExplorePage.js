@@ -11,6 +11,7 @@ const ExplorePage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
     const [postData, setPostData] = useState("");
     const [userInformation, setUserInformation] = useState("");
+    const [users, setUsers] = useState("");
 
     useEffect(() => {
         if (userId) {
@@ -21,6 +22,14 @@ const ExplorePage = props => {
             })();
         }
     }, [userId]);
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`${baseUrl}/api/users/search`);
+            const data = await res.json();
+            setUsers(data);
+        })();
+    }, []);
 
     useEffect(() => {
         (async () => {
@@ -42,10 +51,12 @@ const ExplorePage = props => {
         })();
     }, [])
 
+    if (!users) return null;
+
     return (
         <>
             <Modal {...props} userInfo={userInformation} postData={postData} />
-            <Navigation {...props} />
+            <Navigation {...props} users={users} />
             <ExplorePageBody posts={props.posts} />
         </>
     );

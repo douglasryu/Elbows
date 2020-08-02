@@ -10,7 +10,6 @@ import { openModal, closeModal } from "../actions/modalActions";
 
 const Post = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID")
-    const [numLikes, setNumLikes] = useState(0);
     const postArray = Object.values(props.postData.result);
 
     return (

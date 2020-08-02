@@ -19,13 +19,15 @@ const ActivityModal = props => {
 
     return (
         <div className="notification__modal" onClick={handleChildClick}>
-            {notificationArray.map((notification, i) => {
+            {notificationArray.slice(0, 10).map((notification, i) => {
                 if (notification.type === "follow") {
                     return (
                         <Link to={`/profile/${notification.userId}`} key={i} onClick={handleCloseModal}>
                             <div className="notification__container">
                                 <div className="notification__picname">
-                                    <img className="notification__userpic" src={notification.user.profilePicUrl} alt="noti-user-pic" />
+                                    <div className="notification__userpic--container">
+                                        <img className="notification__userpic" src={notification.user.profilePicUrl} alt="noti-user-pic" />
+                                    </div>
                                     <div key={i} className="notification__item"><span className="notification__username">{notification.user.username}</span> started following you!</div>
                                 </div>
                             </div>
@@ -36,7 +38,9 @@ const ActivityModal = props => {
                         <Link to={`/posts/${notification.post.id}`} key={i} onClick={handleCloseModal}>
                             <div className="notification__container">
                                 <div className="notification__picname">
-                                    <img className="notification__userpic" src={notification.user.profilePicUrl} alt="noti-user-pic" />
+                                    <div className="notification__userpic--container">
+                                        <img className="notification__userpic" src={notification.user.profilePicUrl} alt="noti-user-pic" />
+                                    </div>
                                     <div key={i} className="notification__item"><span className="notification__username">{notification.user.username}</span> commented on your post</div>
                                 </div>
                                 <div className="notification__postpic--container">
@@ -50,7 +54,9 @@ const ActivityModal = props => {
                         <Link to={`/posts/${notification.post.id}`} key={i} onClick={handleCloseModal}>
                             <div className="notification__container">
                                 <div className="notification__picname">
-                                    <img className="notification__userpic" src={notification.user.profilePicUrl} alt="noti-user-pic" />
+                                    <div className="notification__userpic--container">
+                                        <img className="notification__userpic" src={notification.user.profilePicUrl} alt="noti-user-pic" />
+                                    </div>
                                     <div key={i} className="notification__item"><span className="notification__username">{notification.user.username}</span> liked your post</div>
                                 </div>
                                 <div className="notification__postpic--container">

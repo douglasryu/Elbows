@@ -7,6 +7,7 @@ import './stylesheets/index.css';
 import './stylesheets/modal.css';
 import './stylesheets/session.css';
 import './stylesheets/navigation.css';
+import './stylesheets/mainsearch.css';
 import './stylesheets/landingpage.css';
 import './stylesheets/profilepage.css';
 import './stylesheets/uploadpage.css';

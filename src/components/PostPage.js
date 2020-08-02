@@ -11,7 +11,8 @@ import { fetchNotifications } from "../actions/postActions";
 const PostPage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
     const [postData, setPostData] = useState("");
-    const [postInfo, setPostInfo] = useState("")
+    const [postInfo, setPostInfo] = useState("");
+    const [users, setUsers] = useState("");
     const [userInformation, setUserInformation] = useState("");
     const postId = parseInt(props.match.params.postId, 10);
 
@@ -22,6 +23,14 @@ const PostPage = props => {
             setPostData(data);
         })();
     }, [postId]);
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`${baseUrl}/api/users/search`);
+            const data = await res.json();
+            setUsers(data);
+        })();
+    }, []);
 
     useEffect(() => {
         if (userId) {
@@ -48,11 +57,12 @@ const PostPage = props => {
     }, [userId]);
 
     if (!postData) return null;
+    if (!users) return null;
 
     return (
         <>
             <Modal {...props} userInfo={userInformation} postData={postInfo} userId={postData.post.user.id} />
-            <Navigation />
+            <Navigation {...props} users={users} />
             <PostPageBody {...props} postData={postData} />
         </>
     );

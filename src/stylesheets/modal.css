@@ -34,16 +34,23 @@
     align-items: center;
 }
 
-.notification__userpic {
+.notification__userpic--container {
     width: 30px;
     height: 30px;
     border: 1px solid rgba(156, 175, 183, 0.5);
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.notification__userpic {
+    width: 45px;
 }
 
 .notification__item {
     font-size: 15px;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .notification__username {
