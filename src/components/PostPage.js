@@ -17,7 +17,7 @@ const PostPage = props => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`${baseUrl}/api/posts/info/${postId}`);
+            const res = await fetch(`${baseUrl}/api/posts/info/${userId}/${postId}`);
             const data = await res.json();
             setPostData(data);
         })();

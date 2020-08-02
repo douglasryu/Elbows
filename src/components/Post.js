@@ -9,13 +9,14 @@ import LikeButton from "./LikeButton";
 import { openModal, closeModal } from "../actions/modalActions";
 
 const Post = props => {
+    const userId = window.localStorage.getItem("elbows/authentication/USER_ID")
     const [numLikes, setNumLikes] = useState(0);
     const postArray = Object.values(props.postData.result);
 
     return (
-        <div>
+        <>
             {postArray.reverse().map(post => {
-                // console.log(post);
+                // console.log(post.check_user_liked)
                 return (
                     <div className="post__container" key={post.id}>
                         <div className="post__namedate">
@@ -32,7 +33,7 @@ const Post = props => {
                         </Link>
                         <div className="post__numlikestyle">
                             <div className="postpage__numlikes--container">
-                                <LikeButton postId={post.id} {...props} />
+                                <LikeButton postId={post.id} {...props} checkUserLike={post.check_user_liked} />
                                 <div className={`post__numlikes${post.id} post__numlikes`}>{post.numLikes} likes</div>
                             </div>
                             <div className="post__location">{post.location}</div>
@@ -45,7 +46,7 @@ const Post = props => {
                     </div>
                 )
             })}
-        </div >
+        </ >
     );
 }
 

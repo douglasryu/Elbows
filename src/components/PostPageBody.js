@@ -26,7 +26,7 @@ const PostPageBody = props => {
             <img className="postpage__img" src={postData.post.postImage} alt="post-img" />
             <div className="postpage__numlikestyle">
                 <div className="postpage__numlikes--container">
-                    <LikeButton postId={postData.post.id} {...props} />
+                    <LikeButton postId={postData.post.id} {...props} checkUserLike={postData.post.check_user_liked} />
                     <div className={`post__numlikes${postData.post.id} postpage__numlikes`}>{postData.likes.length} likes</div>
                 </div>
                 <div className="postpage__locationdate">

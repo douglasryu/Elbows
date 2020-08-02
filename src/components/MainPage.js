@@ -48,7 +48,7 @@ const MainPage = props => {
     return (
         <>
             <Modal {...props} postData={postData} userInfo={userInformation} />
-            <Navigation />
+            <Navigation {...props} />
             <Post postData={postData} {...props} />
         </>
     );
