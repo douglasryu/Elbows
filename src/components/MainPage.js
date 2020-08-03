@@ -27,13 +27,11 @@ const MainPage = props => {
     }, []);
 
     useEffect(() => {
-        if (userId) {
-            (async () => {
-                const res = await fetch(`${baseUrl}/api/main/${userId}`);
-                const data = await res.json();
-                setPostData(data);
-            })();
-        }
+        (async () => {
+            const res = await fetch(`${baseUrl}/api/main/${userId}`);
+            const data = await res.json();
+            setPostData(data);
+        })();
     }, [userId]);
 
     useEffect(() => {

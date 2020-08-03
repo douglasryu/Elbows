@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
-import PostUserPicName from "./PostUserPicName";
 import CommentSection from "./CommentSection";
 import LikeButton from "./LikeButton";
 import { openModal, closeModal } from "../actions/modalActions";
@@ -15,7 +13,6 @@ const Post = props => {
     return (
         <>
             {postArray.reverse().map(post => {
-                // console.log(post.check_user_liked)
                 return (
                     <div className="post__container" key={post.id}>
                         <div className="post__namedate">
