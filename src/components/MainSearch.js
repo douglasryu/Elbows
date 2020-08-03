@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import SearchIcon from '@material-ui/icons/Search';
 
+import { baseUrl } from "../config";
+
 
 const Mainsearch = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
@@ -29,10 +31,12 @@ const Mainsearch = props => {
         setSuggestions([]);
     }
 
-    const handleSubmit = event => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const targetUser = (usersArray.reverse().indexOf(text) + 1);
-        props.history.push(`/profile/${targetUser}`);
+        const res = await fetch(`${baseUrl}/api/user/search/${text}`);
+        const searchUserData = await res.json();
+        const searchUserId = searchUserData.userId;
+        props.history.push(`/profile/${searchUserId}`);
     }
 
     const renderSuggestions = () => {
