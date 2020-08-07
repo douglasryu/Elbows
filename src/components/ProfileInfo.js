@@ -15,8 +15,6 @@ const ProfileInfo = props => {
     if (!props.userInfo.user) return null;
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
 
-    // console.log(props.userInfo);
-
     const handleFollow = async (event) => {
         event.preventDefault();
         const options = {
@@ -25,6 +23,9 @@ const ProfileInfo = props => {
             body: JSON.stringify({ userId, followUserId: props.match.params.userId }),
         }
         const res = await fetch(`${baseUrl}/api/follows`, options);
+        if (res.status === 200) {
+            window.location.reload(true);
+        }
         if (res.status !== 200) {
             const error = await res.json();
             setErrorMessage(error.error);
@@ -32,18 +33,34 @@ const ProfileInfo = props => {
         }
     }
 
+    const handleFollowing = event => {
+        setErrorMessage("Already following!");
+        setOpen(true);
+    }
+
     const editButton = () => {
         if (userId === props.match.params.userId) {
             return (
-                // <button className="profile__edit">Edit Profile</button>
                 <button onClick={() => props.openModal("edit")} className="profile__edit">Edit Profile</button>
             );
         } else {
-            return (
-                <button onClick={handleFollow} className="profile__edit">Follow</button>
-            );
+            let followers = props.userInfo.followersList;
+            let checkFollowing = followers.filter(follower => {
+                return follower.userId === parseInt(userId, 10);
+            })
+
+            if (checkFollowing.length) {
+                return (
+                    <button onClick={handleFollowing} className="profile__edit">Following</button>
+                );
+            } else {
+                return (
+                    <button onClick={handleFollow} className="profile__edit">Follow</button>
+                );
+            }
         }
     }
+
 
     const handleClose = (reason) => {
         if (reason === 'clickaway') {

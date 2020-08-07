@@ -114,6 +114,12 @@
     font-size: 15px;
 }
 
+.comment__delete {
+    font-size: 13px;
+    color: #e31b23;
+    margin: 0px 5px 0px auto;
+}
+
 .post__comment {
     display: flex;
     justify-content: space-between;

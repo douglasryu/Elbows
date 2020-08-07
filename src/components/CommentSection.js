@@ -15,7 +15,7 @@ const CommentSection = props => {
             const data = await res.json();
             setCommentArray(data.comments);
         })();
-    }, [postId]);
+    }, [comment]);
 
     const handleInput = event => {
         setComment(event.target.value);
@@ -34,6 +34,15 @@ const CommentSection = props => {
         }
     }
 
+    const deleteComment = async (event) => {
+        event.preventDefault();
+        const res = await fetch(`${baseUrl}/api/comments/delete/${event.target.id}`);
+        if (res.ok) {
+            setComment("deleted");
+            setComment("");
+        }
+    }
+
     if (!commentArray) return null;
 
     return (
@@ -43,6 +52,7 @@ const CommentSection = props => {
                     <div className="comment__usercomment" key={comment.id}>
                         <div className="comment__user">{comment.userName}</div>
                         <div className="comment__comment">{comment.commentBody}</div>
+                        {comment.userId === parseInt(userId, 10) ? <button onClick={deleteComment} id={comment.id} className="comment__delete">delete</button> : null}
                     </div>
                 );
             })) : null}

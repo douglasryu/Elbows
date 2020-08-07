@@ -67,6 +67,7 @@ const LikeButton = props => {
             );
         }
     }
+    console.log(props);
 
     return (
         <>
