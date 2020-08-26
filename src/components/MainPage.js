@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Modal from "./Modal";
 import Navigation from "./Navigation";
 import Post from "./Post";
+import Footer from "./Footer";
 import { loadToken } from "../actions/sessionActions";
 import { fetchMainPagePosts, fetchNotifications } from "../actions/postActions";
 import { baseUrl } from "../config";
@@ -57,6 +58,7 @@ const MainPage = props => {
             <Modal {...props} postData={postData} userInfo={userInformation} />
             <Navigation {...props} users={users} />
             <Post postData={postData} {...props} />
+            <Footer />
         </>
     );
 }

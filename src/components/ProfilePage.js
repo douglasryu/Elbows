@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import Navigation from "./Navigation";
 import ProfileInfo from "./ProfileInfo";
 import ProfilePosts from "./ProfilePosts";
+import Footer from "./Footer";
 import { loadToken } from "../actions/sessionActions";
 import { baseUrl } from "../config";
 import { fetchNotifications } from "../actions/postActions";
@@ -63,6 +64,7 @@ const ProfilePage = props => {
             <Navigation {...props} users={users} />
             <ProfileInfo userInfo={userInformation} {...props} />
             <ProfilePosts postsArray={postsArray} />
+            <Footer />
         </>
     );
 }

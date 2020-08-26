@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import Modal from "./Modal";
 import Upload from "./Upload";
 import { baseUrl } from "../config";
+import Footer from "./Footer";
 
 const UploadPage = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
@@ -44,6 +45,7 @@ const UploadPage = props => {
             <Modal {...props} userInfo={userInformation} postData={postData} />
             <Navigation {...props} users={users} />
             <Upload {...props} />
+            <Footer />
         </>
     );
 }

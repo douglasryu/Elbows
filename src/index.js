@@ -14,6 +14,7 @@ import './stylesheets/uploadpage.css';
 import './stylesheets/post.css';
 import './stylesheets/explorepage.css';
 import './stylesheets/postpage.css';
+import './stylesheets/footer.css';
 import App from './App';
 
 const store = configureStore();

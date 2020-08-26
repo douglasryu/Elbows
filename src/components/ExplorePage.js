@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Modal from "./Modal";
 import Navigation from "./Navigation";
 import ExplorePageBody from "./ExplorePageBody";
+import Footer from "./Footer";
 import { fetchPosts, fetchNotifications } from "../actions/postActions";
 import { baseUrl } from "../config";
 
@@ -58,6 +59,7 @@ const ExplorePage = props => {
             <Modal {...props} userInfo={userInformation} postData={postData} />
             <Navigation {...props} users={users} />
             <ExplorePageBody posts={props.posts} />
+            <Footer />
         </>
     );
 }
