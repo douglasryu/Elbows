@@ -13,7 +13,6 @@ import { openModal, closeModal } from "../actions/modalActions";
 
 const Navigation = props => {
     const closeModalHandler = event => {
-        // event.preventDefault()
         props.closeModal();
     }
 
