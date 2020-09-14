@@ -56,7 +56,24 @@ const LikeButton = props => {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
     }
 
+    // if (!props.postData.likes) return null;
+
     const renderButton = () => {
+        // const postLikes = props.postData.likes;
+        // postLikes.forEach(user => {
+        //     if (user.id == userId) {
+        //         console.log("match");
+        //         return (
+        //             <button onClick={handlePostLikes} className={`post__like post__like${props.postId}`}><LikeIcon className="post__like--button" style={{ fontSize: 20, color: "#e31b23" }} /></button>
+        //         );
+        //     } else {
+        //         console.log("nomatch");
+        //         return <button onClick={handlePostLikes} className={`post__like post__like${props.postId}`}><FavoriteBorderOutlinedIcon className="post__like--button" style={{ fontSize: 20, color: "#e31b23" }} /></button>;
+        //     }
+        //     return (
+        //         <button onClick={handlePostLikes} className={`post__like post__like${props.postId}`}><FavoriteBorderOutlinedIcon className="post__like--button" style={{ fontSize: 20, color: "#e31b23" }} /></button>
+        //     )
+        // })
         if (props.checkUserLike) {
             return (
                 <button onClick={handlePostLikes} className={`post__like post__like${props.postId}`}><LikeIcon className="post__like--button" style={{ fontSize: 20, color: "#e31b23" }} /></button>
@@ -67,7 +84,7 @@ const LikeButton = props => {
             );
         }
     }
-    console.log(props);
+
 
     return (
         <>

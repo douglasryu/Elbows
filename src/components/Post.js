@@ -10,6 +10,8 @@ const Post = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID")
     const postArray = Object.values(props.postData.result);
 
+    // if (!postArray) return null;
+
     return (
         <>
             {postArray.reverse().map(post => {
