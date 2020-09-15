@@ -73,6 +73,8 @@ const ProfileInfo = props => {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
     }
 
+    // console.log(props.userInfo);
+
     return (
         <>
             <div className="profile__info">
@@ -86,8 +88,8 @@ const ProfileInfo = props => {
                     </div>
                     <div className="profile__details--middle">
                         <div className="profile__posts">{props.userInfo.num_posts} posts</div>
-                        <div className="profile__follower">{props.userInfo.numFollower} followers</div>
-                        <div className="profile__following">{props.userInfo.numFollow} following</div>
+                        <button onClick={() => props.openModal("followers")} className="profile__follower">{props.userInfo.numFollower} followers</button>
+                        <button onClick={() => props.openModal("followings")} className="profile__following">{props.userInfo.numFollow} following</button>
                     </div>
                     <div className="profile__details--bottom">
                         <div className="profile__user--name">{props.userInfo.user.name}</div>

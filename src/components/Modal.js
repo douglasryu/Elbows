@@ -6,6 +6,8 @@ import ActivityModal from "./ActivityModal";
 import AccountModal from "./AccountModal";
 import EditProfileModal from "./EditProfileModal";
 import PostSettingsModal from "./PostSettingsModal";
+import FollowersModal from "./FollowersModal";
+import FollowingsModal from "./FollowingsModal";
 
 const Modal = (props) => {
     const { modal } = props;
@@ -25,6 +27,12 @@ const Modal = (props) => {
             break;
         case "postsettings":
             component = <PostSettingsModal type={"postsettings"} {...props} />;
+            break;
+        case "followers":
+            component = <FollowersModal type={"followers"} {...props} />;
+            break;
+        case "followings":
+            component = <FollowingsModal type={"followings"} {...props} />;
             break;
         default:
             return null;

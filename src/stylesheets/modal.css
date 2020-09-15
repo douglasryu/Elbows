@@ -191,3 +191,49 @@
     text-align: center;
     margin: 20px 20px 20px 20px;
 }
+
+/* Followers Modal */
+.profile__followers-list {
+    position: relative;
+    top: 200px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px solid rgba(156, 175, 183, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    overflow-y: scroll;
+}
+
+.profile__followers--header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.profile__followers {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile__followers-pic--wrapper {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.profile__followers-pic {
+    width: 70px;
+}
