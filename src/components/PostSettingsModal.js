@@ -30,7 +30,7 @@ const PostSettingsModal = props => {
         const res = await fetch(`${baseUrl}/api/posts/delete/${props.match.params.postId}`)
         if (res.ok) {
             props.closeModal();
-            props.history.push("/main");
+            props.history.push(`/profile/${userId}`);
         }
     }
 

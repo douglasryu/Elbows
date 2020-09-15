@@ -17,6 +17,16 @@ const ActivityModal = props => {
         props.closeModal();
     }
 
+    if (notificationArray.length === 0) {
+        return (
+            <div className="notification__default--modal">
+                <div className="notification__default--container">
+                    <div className="notification__default">You will receive notifications when others follow, comment, or like your post</div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="notification__modal" onClick={handleChildClick}>
             {notificationArray.slice(0, 10).map((notification, i) => {

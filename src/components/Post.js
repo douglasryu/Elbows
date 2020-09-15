@@ -10,10 +10,16 @@ const Post = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID")
     const postArray = Object.values(props.postData.result);
 
-    // if (!postArray) return null;
+    if (postArray.length === 0) {
+        return (
+            <div className="mainpage__default--wrapper">
+                <div className="mainpage__default">Go to <Link to="/explore" className="mainpage__explore-link">explore page</Link> or search to start following others</div>
+            </div>
+        )
+    };
 
     return (
-        <>
+        <div className="mainpage__post--wrapper">
             {postArray.reverse().map(post => {
                 return (
                     <div className="post__container" key={post.id}>
@@ -44,7 +50,7 @@ const Post = props => {
                     </div>
                 )
             })}
-        </ >
+        </div>
     );
 }
 

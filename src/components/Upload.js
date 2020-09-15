@@ -44,7 +44,7 @@ const Upload = props => {
         }
         await fetch(`${baseUrl}/api/posts`, options);
         setCustomInput(false);
-        props.history.push("/main");
+        props.history.push(`/profile/${userId}`);
     }
 
     return (

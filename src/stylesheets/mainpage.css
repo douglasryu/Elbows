@@ -1,0 +1,18 @@
+.mainpage__default--wrapper {
+    min-height: 77vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainpage__explore-link {
+    text-decoration: underline;
+}
+
+.mainpage__explore-link:hover {
+    font-weight: 700;
+}
+
+.mainpage__post--wrapper {
+    min-height: 77vh;
+}

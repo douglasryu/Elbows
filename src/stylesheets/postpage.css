@@ -1,3 +1,7 @@
+.postpage__wrapper {
+    min-height: 77vh;
+}
+
 .postpage__container {
     width: 800px;
     margin: 0 auto;

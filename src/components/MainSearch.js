@@ -52,7 +52,7 @@ const Mainsearch = props => {
         <form onSubmit={handleSubmit} className="search__form">
             <SearchIcon className="search__icon" style={{ fontSize: 28 }} />
             <div className="searchbar__container">
-                <input onChange={handleSearchInput} type="search" value={text} className="search__input" placeholder="Search for friends" />
+                <input onChange={handleSearchInput} type="search" value={text} className="search__input" placeholder="Try harrisonford, tomcruise..." />
                 {renderSuggestions()}
             </div>
         </form>

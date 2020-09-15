@@ -6,6 +6,7 @@
     border: 1px solid rgba(156, 175, 183, 0.7);
     margin-bottom: 50px;
     border-radius: 2px;
+    /* min-height: 70vh; */
 }
 
 .post__namedate {

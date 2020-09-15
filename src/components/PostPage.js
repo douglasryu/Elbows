@@ -5,6 +5,7 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import Modal from "./Modal";
 import Navigation from "./Navigation";
 import PostPageBody from "./PostPageBody";
+import Footer from "./Footer";
 import { baseUrl } from "../config";
 import { fetchNotifications } from "../actions/postActions";
 
@@ -64,6 +65,7 @@ const PostPage = props => {
             <Modal {...props} userInfo={userInformation} postData={postInfo} userId={postData.post.user.id} />
             <Navigation {...props} users={users} />
             <PostPageBody {...props} postData={postData} />
+            <Footer />
         </>
     );
 }
