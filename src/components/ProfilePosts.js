@@ -15,13 +15,15 @@ const ProfilePosts = props => {
     }
 
     return (
-        <div className="personal__posts--outer">
-            <div className="personal__posts--container">
-                {postsArray.map(post => {
-                    return (
-                        <PersonalPost key={post.id} post={post} {...props} />
-                    );
-                })}
+        <div className="personal__posts--wrapper">
+            <div className="personal__posts--outer">
+                <div className="personal__posts--container">
+                    {postsArray.map(post => {
+                        return (
+                            <PersonalPost key={post.id} post={post} {...props} />
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );

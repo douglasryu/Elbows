@@ -38,7 +38,7 @@ const ActivityModal = props => {
                                     <div className="notification__userpic--container">
                                         <img className="notification__userpic" src={notification.user.profilePicUrl} alt="noti-user-pic" />
                                     </div>
-                                    <div key={i} className="notification__item"><span className="notification__username">{notification.user.username}</span> started following you!</div>
+                                    <div key={i} className="notification__item"><span className="notification__username">{notification.user.username === "Guest" ? "You" : notification.user.username}</span> started following you!</div>
                                 </div>
                             </div>
                         </Link>
@@ -51,7 +51,7 @@ const ActivityModal = props => {
                                     <div className="notification__userpic--container">
                                         <img className="notification__userpic" src={notification.user.profilePicUrl} alt="noti-user-pic" />
                                     </div>
-                                    <div key={i} className="notification__item"><span className="notification__username">{notification.user.username}</span> commented on your post</div>
+                                    <div key={i} className="notification__item"><span className="notification__username">{notification.user.username === "Guest" ? "You" : notification.user.username}</span> commented on your post</div>
                                 </div>
                                 <div className="notification__postpic--container">
                                     <img className="notification__postpic" src={notification.post.postImage} alt="noti-pic" />
@@ -67,7 +67,7 @@ const ActivityModal = props => {
                                     <div className="notification__userpic--container">
                                         <img className="notification__userpic" src={notification.user.profilePicUrl} alt="noti-user-pic" />
                                     </div>
-                                    <div key={i} className="notification__item"><span className="notification__username">{notification.user.username}</span> liked your post</div>
+                                    <div key={i} className="notification__item"><span className="notification__username">{notification.user.username === "Guest" ? "You" : notification.user.username}</span> liked your post</div>
                                 </div>
                                 <div className="notification__postpic--container">
                                     <img className="notification__postpic" src={notification.post.postImage} alt="noti-pic" />

@@ -74,10 +74,13 @@
     font-weight: 700;
 }
 
+.personal__posts--wrapper {
+    min-height: 64vh;
+}
+
 .personal__posts--outer {
     display: flex;
     justify-content: center;
-    min-height: 64vh;
 }
 
 .personal__posts--container {
