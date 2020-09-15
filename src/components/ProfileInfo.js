@@ -38,6 +38,19 @@ const ProfileInfo = props => {
         setOpen(true);
     }
 
+    const handleUnfollow = async (event) => {
+        event.preventDefault();
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId }),
+        }
+        const res = await fetch(`${baseUrl}/api/unfollow/${userId}/${props.match.params.userId}`, options);
+        if (res.status === 200) {
+            window.location.reload(true);
+        }
+    }
+
     const editButton = () => {
         if (userId === props.match.params.userId) {
             return (
@@ -51,7 +64,10 @@ const ProfileInfo = props => {
 
             if (checkFollowing.length) {
                 return (
-                    <button onClick={handleFollowing} className="profile__edit">Following</button>
+                    <>
+                        <button onClick={handleFollowing} className="profile__edit">Following</button>
+                        <button onClick={handleUnfollow} className="profile__edit--unfollow">Unfollow</button>
+                    </>
                 );
             } else {
                 return (

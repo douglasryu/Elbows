@@ -36,7 +36,7 @@ const PostPageBody = props => {
                     </div>
                 </div>
                 <div className="postpage__body--container">
-                    <div className="postpage__body--username">{postData.post.user.username}</div>
+                    <Link to={`/profile/${postData.post.userId}`} className="postpage__body--username">{postData.post.user.username}</Link>
                     <div className="postpage__body">{postData.post.postBody}</div>
                 </div>
                 <CommentSection postId={postData.post.id} />

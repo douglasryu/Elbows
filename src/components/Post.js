@@ -43,7 +43,7 @@ const Post = props => {
                             <div className="post__location">{post.location}</div>
                         </div>
                         <div className="post__body--container">
-                            <div className="post__body--username">{post.user_info.username}</div>
+                            <Link to={`/profile/${post.userId}`} className="post__body--username">{post.user_info.username}</Link>
                             <div className="post__body">{post.postBody}</div>
                         </div>
                         <CommentSection postId={post.id} />

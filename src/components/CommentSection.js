@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { baseUrl } from "../config";
 
@@ -50,7 +51,7 @@ const CommentSection = props => {
             {commentArray ? (commentArray.map(comment => {
                 return (
                     <div className="comment__usercomment" key={comment.id}>
-                        <div className="comment__user">{comment.userName}</div>
+                        <Link to={`/profile/${comment.userId}`} className="comment__user">{comment.userName}</Link>
                         <div className="comment__comment">{comment.commentBody}</div>
                         {comment.userId === parseInt(userId, 10) ? <button onClick={deleteComment} id={comment.id} className="comment__delete">delete</button> : null}
                     </div>

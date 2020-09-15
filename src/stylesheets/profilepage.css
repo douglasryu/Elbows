@@ -52,6 +52,14 @@
     padding: 3px 5px 3px 5px;
 }
 
+.profile__edit--unfollow {
+    margin-left: 10px;
+    border: 1px solid rgba(156, 175, 183, 0.8);
+    border-radius: 3px;
+    padding: 3px 5px 3px 5px;
+    color: #e31b23;
+}
+
 .profile__details--middle {
     margin-top: 20px;
     display: flex;
