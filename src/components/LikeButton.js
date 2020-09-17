@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { SvgIcon } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+// import MuiAlert from '@material-ui/lab/Alert';
+// import Snackbar from '@material-ui/core/Snackbar';
+// import IconButton from '@material-ui/core/IconButton';
+// import CloseIcon from '@material-ui/icons/Close';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
@@ -12,8 +12,8 @@ import { baseUrl } from "../config";
 const LikeButton = props => {
     const userId = window.localStorage.getItem("elbows/authentication/USER_ID");
     const postId = props.postId;
-    const [error, setError] = useState("");
-    const [open, setOpen] = useState(false);
+    // const [error, setError] = useState("");
+    // const [open, setOpen] = useState(false);
 
     const LikeIcon = props => {
         return (
@@ -58,18 +58,16 @@ const LikeButton = props => {
         }
     }
 
-    const handleClose = (reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        setOpen(false);
-    };
+    // const handleClose = (reason) => {
+    //     if (reason === 'clickaway') {
+    //         return;
+    //     }
+    //     setOpen(false);
+    // };
 
-    const Alert = props => {
-        return <MuiAlert elevation={6} variant="filled" {...props} />;
-    }
-
-    // if (!props.postData.likes) return null;
+    // const Alert = props => {
+    //     return <MuiAlert elevation={6} variant="filled" {...props} />;
+    // }
 
     const renderButton = () => {
         if (props.checkUserLike) {
@@ -87,7 +85,7 @@ const LikeButton = props => {
     return (
         <>
             {renderButton()}
-            <Snackbar
+            {/* <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                 open={open}
                 autoHideDuration={2000}
@@ -100,7 +98,7 @@ const LikeButton = props => {
                     </React.Fragment>
                 }>
                 <Alert onClose={handleClose} severity="error">{error}</Alert>
-            </Snackbar>
+            </Snackbar> */}
         </>
     );
 }

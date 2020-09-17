@@ -6,7 +6,7 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import { openModal } from "../actions/modalActions";
 
 const PostUserPicName = props => {
-    console.log(props.post)
+    // console.log(props.post)
 
     return (
         <>

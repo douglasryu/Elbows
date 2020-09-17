@@ -1,13 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import SearchIcon from '@material-ui/icons/Search';
+
 import Mainsearch from "./MainSearch";
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import HomeIcon from '@material-ui/icons/Home';
 import AddPhotoAlternateOutlinedIcon from '@material-ui/icons/AddPhotoAlternateOutlined';
+import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
+import ExploreIcon from '@material-ui/icons/Explore';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import { openModal, closeModal } from "../actions/modalActions";
 
@@ -15,6 +20,8 @@ const Navigation = props => {
     const closeModalHandler = event => {
         props.closeModal();
     }
+
+    // console.log(props.modal);
 
     return (
         <nav className="nav__container">
@@ -164,18 +171,22 @@ const Navigation = props => {
                             419.18,58.01 415.37,57.10 410.17,56.05 Z" />
                 </svg>
             </Link>
-            {/* <SearchIcon className="nav__search--icon" style={{ fontSize: 25 }} /> */}
-            {/* <input className="nav__search" placeholder="Search"></input> */}
             <Mainsearch {...props} />
-            <Link onClick={closeModalHandler} to="/main"><HomeOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
-            <Link onClick={closeModalHandler} to="/upload"><AddPhotoAlternateOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
-            <Link onClick={closeModalHandler} to="/explore"><ExploreOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>
-            <button onClick={() => props.openModal("activity")}><FavoriteBorderOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>
-            <button onClick={() => props.openModal("account")} className="nav__account"><AccountCircleOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>
+            {props.location.pathname === "/main" ? <Link onClick={closeModalHandler} to="/main"><HomeIcon className="nav__menu" style={{ fontSize: 30 }} /></Link> : <Link onClick={closeModalHandler} to="/main"><HomeOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>}
+            {props.location.pathname === "/upload" ? <Link onClick={closeModalHandler} to="/upload"><AddPhotoAlternateIcon className="nav__menu" style={{ fontSize: 33 }} /></Link> : <Link onClick={closeModalHandler} to="/upload"><AddPhotoAlternateOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>}
+            {props.location.pathname === "/explore" ? <Link onClick={closeModalHandler} to="/explore"><ExploreIcon className="nav__menu" style={{ fontSize: 30 }} /></Link> : <Link onClick={closeModalHandler} to="/explore"><ExploreOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></Link>}
+            {props.modal === "activity" ? <button onClick={() => props.openModal("activity")}><FavoriteIcon className="nav__menu" style={{ fontSize: 30 }} /></button> : <button onClick={() => props.openModal("activity")}><FavoriteBorderOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>}
+            {props.modal === "account" || props.location.pathname.startsWith("/profile") ? <button onClick={() => props.openModal("account")} className="nav__account"><AccountCircleIcon className="nav__menu" style={{ fontSize: 30 }} /></button> : <button onClick={() => props.openModal("account")} className="nav__account"><AccountCircleOutlinedIcon className="nav__menu" style={{ fontSize: 30 }} /></button>}
         </nav>
     );
 }
 
+
+const mapStateToProps = (state) => {
+    return {
+        modal: state.modal,
+    };
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -186,7 +197,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(
     Navigation

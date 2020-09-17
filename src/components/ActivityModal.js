@@ -30,7 +30,7 @@ const ActivityModal = props => {
     return (
         <div className="notification__modal" onClick={handleChildClick}>
             {notificationArray.slice(0, 10).map((notification, i) => {
-                console.log(notification);
+                // console.log(notification);
                 if (notification.type === "follow") {
                     return (
                         <Link to={`/profile/${notification.userId}`} key={i} onClick={handleCloseModal}>

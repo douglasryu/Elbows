@@ -6,7 +6,7 @@ import { closeModal } from "../actions/modalActions";
 
 
 const FollowersModal = props => {
-    console.log(props);
+    // console.log(props);
     return (
         <>
             <div className="profile__followers-list"><span className="profile__followers--header">Followers</span>
