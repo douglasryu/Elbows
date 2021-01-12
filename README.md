@@ -6,11 +6,12 @@ Visit the live site [here](https://elbowsapp.herokuapp.com/).
 
 # Key Features
 
--   Users can sign up or use a demo account. 
--   Users can add stocks to their watchlist and buy them directly from the company page.
-- Users can delete stocks from their watchlist
--   Users can review the change of their portfolio prices through the interaction of the graph which include the price changes from the last 30 days. 
-- Users can see the graphical behavior of different stocks prices.
+- Users can create accounts, login, and logout. 
+- Users can create posts with an image and text.
+- Users can view, like, and leave comments on posts created by friends.
+- Users can delete their own posts and comments.
+- Users can follow and unfollow other users.
+- Users can like and unlike posts.
 
 
 # Technology Used
