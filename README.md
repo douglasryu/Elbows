@@ -1,8 +1,8 @@
-# Rockinhood
+# Elbows
 
-Rockinhood recreates the vision of the famous Robinhood app allowing people to start investing in stocks breaking free from comission fees.
+Social network platform inpired by Instagram. Welcome to Elbows where you can "rub elbows" with friends and family from a safe social distance.
 
-Visit the live site [here](https://rockinhood.herokuapp.com/).
+Visit the live site [here](https://elbowsapp.herokuapp.com/).
 
 # Key Features
 
