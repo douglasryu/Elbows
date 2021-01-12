@@ -1,64 +1,81 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rockinhood
 
-## Available Scripts
+Rockinhood recreates the vision of the famous Robinhood app allowing people to start investing in stocks breaking free from comission fees.
 
-In the project directory, you can run:
+Visit the live site [here](https://rockinhood.herokuapp.com/).
 
-### `npm start`
+# Key Features
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   Users can sign up or use a demo account. 
+-   Users can add stocks to their watchlist and buy them directly from the company page.
+- Users can delete stocks from their watchlist
+-   Users can review the change of their portfolio prices through the interaction of the graph which include the price changes from the last 30 days. 
+- Users can see the graphical behavior of different stocks prices.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+# Technology Used
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   Express
+-   Sequelize
+-   Node.js
+-   Postgres
+-   D3js
+-   Bcryptjs
+-   Pug
+-  JWT
+-  Cors
+- JavaScript, HTML and CSS
 
-### `npm run build`
+# Dates in JS
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After fetching the historical data from the Yahoo finance API we faced an issue with the array of objects we were getting back.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    const data = [{"date":"2020-04-21T13:30:00.000Z",  "value": 2328.1201171875}]
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ Even though the format was being received as a date value in ISO format it was not instanciated as a date object recognizable by  JavaScript. This caused us trouble when plotting the graph since the value recieved was not a number capable of creating the graph line in the X axis.
+The following snippet shows how we solved this issue by mapping over the array of objects and creating an date instance fro each value of date:
 
-### `npm run eject`
+    const moddedData = data.map((element) => { 
+	    element.date  =  new Date(element.date);
+	    return element
+	    });
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ # Plotting the graph 
+Trying to recreate the look and behavior of the graph in the spirit of Robinhood's app was another challenge we faced during  the making of Rokinhood. The approach to re-create the graph was made through the use of the **D3.js** JavaScript library  which allowed us to manipulate the data and bring it to life using HTML, SVG, and CSS. 
+Creating the tooltip that allows to keep track of the date/value while hovering over the graph was done by finding the closest X index of the mouse movement (bisecting the data) contained inside  the SVG  (rectangle) area which let us recover the mouse position and coordenates we needed  :
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    var bisect = d3.bisector(function (d) {
+    return d.date;
+    }).left;
+    function  mousemove() { 
+	    var x0 = x.invert(d3.mouse(this)[0]);
+	    var i =  bisect(data, x0,  1);
+	    selectedData = data[i];
+	    var newDate = selectedData.date.toDateString();
+	    var newVal = (Math.round(selectedData.value  *  100) /  100).toFixed(2);
+	    focus.attr("cx",  x(selectedData.date)).attr("cy",y(selectedData.value));
+	    focusText
+			.html(newDate)
+		    .attr("x",  x(selectedData.date) +  -70)
+		    .attr("y",  y(selectedData.value) +  -40);
+	    var diffVal = newVal - data[0].value; 
+	    diffVal = (Math.round(diffVal *  100) /  100).toFixed(2);
+	    var diffPercentage = (newVal *  100) / data[0].value  -  100;
+	    d3.select(".portfolio__header").html(`<span>\$${newVal}</span>`);
+	    d3.select(".portfolio__header-change").html(<span>\$${diffVal}(${diffPercentage.toFixed(2)}%)</span>`);
+    }
+The result:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[![graphd3.png](https://i.postimg.cc/JnxLWvPc/graphd3.png)](https://postimg.cc/ZBWg87kC)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ # The watchlist
+Creating the watchlist and aligning symbols, graphs and prices were done by the implementation of multiple calls to the Yahoo Finance API and formatted  with flexbox in CSS. 
+The API only allows for 5 calls/seconds. We were able to overpass this issue by implementing setTimeout functions that delayed the multiple calls by a second. Finally we were able   to generate the list of stocks owed and watchlist from the portfolio page.
 
-## Learn More
+[![Stocks.png](https://i.postimg.cc/KYK6W4Mb/Stocks.png)](https://postimg.cc/8FSXJp4X)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Planned Feature Components
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ - Improvements in transaction's functionalities
+ - Funding account from dashboard
+ - Add collection tags to categorize companies
