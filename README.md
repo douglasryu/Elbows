@@ -30,6 +30,13 @@ Visit the live site [here](https://elbowsapp.herokuapp.com/).
 - JavaScript, HTML and CSS
 
 
+# Creating Posts
+
+React-dropzone-uploader library was used on the frontend to enable drag-and-drop functionality as well as to post file metadata to the backend. Boto3 library was used on the backend to handle uploading images to the AWS S3 bucket. 
+
+# Notification Feed
+
+
 # Planned Feature Components
 
  - Improvements in transaction's functionalities
